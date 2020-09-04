@@ -40,6 +40,8 @@ I work a lot with PowerShell and also like to automate. I have now packed some o
 It’s also not a secret that the Windows 10 Settings app is not everyone’s cup of tea. 
 My little app doesn't replace it (there is still room for improvement) but bundles the most important locations and recommended settings in one place and youn can open and execute them in bulk. It is completely modular and based on PowerShell scripts. Everybody can map his favorite settings as he wants.
 
+This is the initial release and I will push source code this week under MIT license.
+
 ## Download
 
 - (Latest release) [Download](https://github.com/builtbybel/control-uwp/releases)
