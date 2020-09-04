@@ -31,7 +31,7 @@ alt="GitHub issues">
   <a href="#download">Download the app</a>
 </p>
 
-![screenshot](https://github.com/builtbybel/controluwp/blob/master/assets/controluwp.png)
+![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp.png)
 
 ## About
 
