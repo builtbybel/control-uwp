@@ -49,6 +49,13 @@ This is the initial release and I will push source this week under MIT license.
 
 - (Latest release) [Download](https://github.com/builtbybel/control-uwp/releases)
 
+## Credits
+
+This software uses the following packages:
+
+- [ModernWpf](https://github.com/Kinnara/ModernWpf)
+
+
 ---
 
 > [builtbybel.com](https://www.builtbybel.com) &nbsp;&middot;&nbsp;
