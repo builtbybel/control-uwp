@@ -35,10 +35,10 @@ alt="GitHub issues">
 
 ## About
 
-I work a lot with PowerShell and also like to automate. I have now packed some of my scripts into a GUI named **ControlUWP** and the result is a new Windows 10 Settings App concept. 
+I work a lot with PowerShell and also like to automate. I have now packed some of my scripts into a GUI named **ControlUWP** and the result is a new Windows 10 Settings app concept. 
 
 It’s also not a secret that the Windows 10 Settings app is not everyone’s cup of tea. 
-My little app doesn't replace the Windows 10 settings app (there is still room for improvement) but bundles the most important locations and recommended settings in one place and youn can open and execute them in bulk. It is completely modular and based on PowerShell scripts. Everybody can map his favorite settings as he wants.
+My little app doesn't replace it (there is still room for improvement) but bundles the most important locations and recommended settings in one place and youn can open and execute them in bulk. It is completely modular and based on PowerShell scripts. Everybody can map his favorite settings as he wants.
 
 ## Download
 
