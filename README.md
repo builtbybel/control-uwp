@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-
+  <a href="http://www.builtbybel.com"><img src="https://github.com/builtbybel/control-uwp/blob/master/src/Control/AppIcon.ico" alt="ControlUWP" width="200"></a>
   <br>
   ControlUWP
   <br>
