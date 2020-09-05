@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h3 align="center">Windows 10 Settings app redesign</h3>
+<h3 align="center">Redesigned Windows 10 Settings app</h3>
 
 <p align="center">
 <a href="https://github.com/builtbybel/control-uwp/releases/latest" target="_blank">
@@ -42,8 +42,6 @@ It’s also not a secret that the Windows 10 Settings app is not everyone’s cu
 
 ControlUWP app doesn't replace the native Windows 10 settings panel but bundles the most important locations and recommended settings in one place and you can open and execute them in bulk. It is completely modular and based on PowerShell scripts. 
 Everybody can map his favorite settings as he wants.
-
-This is the initial release and I will push source this week under MIT license.
 
 ## Download
 
