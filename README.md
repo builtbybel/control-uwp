@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h3 align="center">Redesigned Windows 10 Settings app</h3>
+<h3 align="center">Windows 10 Settings app with full control over the settings</h3>
 
 <p align="center">
 <a href="https://github.com/builtbybel/control-uwp/releases/latest" target="_blank">
