@@ -7,7 +7,21 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ui:ThemeResources />
+                   <ui:ThemeResources>
+                    <ui:ThemeResources.ThemeDictionaries>
+
+                        <ResourceDictionary x:Key="Light" ui:ThemeDictionary.Key="Light">
+                            <SolidColorBrush x:Key="AppBackgroundBrushNav" Color="#FAF9F8" />
+                            <SolidColorBrush x:Key="AppBackgroundBrushMiddle" Color="#FFF1F1F1" />
+                          </ResourceDictionary>
+
+                        <ResourceDictionary x:Key="Dark" ui:ThemeDictionary.Key="Dark">
+                            <SolidColorBrush x:Key="AppBackgroundBrushNav" Color="#FF232323" />
+                        </ResourceDictionary>
+                        
+                    </ui:ThemeResources.ThemeDictionaries>
+                </ui:ThemeResources>
+
                 <ui:XamlControlsResources />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

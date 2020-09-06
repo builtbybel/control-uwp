@@ -25,10 +25,10 @@
         </Grid.RowDefinitions>
 
         <!-- Navigation frame -->
-        <Frame Content="" Grid.RowSpan="2" Margin="0,0,3,0" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <Frame Content="" Grid.RowSpan="2" Margin="0,-30,3,0" ScrollViewer.VerticalScrollBarVisibility="Auto" Background="{DynamicResource AppBackgroundBrushNav}" />
 
         <!-- PS frame -->
-        <Frame Content="" Margin="315,-30,0,0" Grid.RowSpan="2" Grid.ColumnSpan="3" BorderThickness="0" Background="{DynamicResource SystemControlBackgroundBaseLowBrush}" Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}" ui:ThemeManager.RequestedTheme="Light"/>
+        <Frame Content="" Margin="315,-30,0,0" Grid.RowSpan="2" Grid.ColumnSpan="3" BorderThickness="0" Background="{DynamicResource AppBackgroundBrushMiddle}" />
 
         <!-- Category list -->
         <ListBox x:Name="_listCategory" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionChanged="_listCategory_SelectionChanged" Margin="5,4,3,1" ScrollViewer.CanContentScroll="False" Background="{x:Null}"/>
