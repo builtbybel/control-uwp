@@ -40,7 +40,7 @@ I work a lot with PowerShell and also like to automate. I have now packed some o
 
 It’s also not a secret that the Windows 10 Settings app is not everyone’s cup of tea. 
 
-ControlUWP app doesn't replace the native Windows 10 settings panel but bundles the most important locations and recommended settings in one place and you can open and execute them in bulk. It is completely modular and based on PowerShell scripts. 
+ControlUWP app doesn't replace (currently) the native Windows 10 settings panel but bundles the most important locations and recommended settings in one place and you can open and execute them in bulk. It is completely modular and based on PowerShell scripts. 
 Everybody can map his favorite settings as he wants.
 
 ## Download
