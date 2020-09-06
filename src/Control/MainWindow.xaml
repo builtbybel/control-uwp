@@ -5,14 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
+        ui:ScrollViewerHelper.AutoHideScrollBars="True"
+        Background="{DynamicResource SystemControlPageBackgroundAltHighBrush}"
+        Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}"
         xmlns:local="clr-namespace:Control"
-        mc:Ignorable="d" Title="ControlUWP" Background="#FFFFFFFF" WindowStartupLocation="Manual" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Height="865" Width="1034">
-    <Grid RenderTransformOrigin="0.511,0.37" Background="White" Margin="0,-2,0,0">
+        mc:Ignorable="d" Title="ControlUWP" WindowStartupLocation="Manual" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Height="865" Width="1034">
+        
+    <Grid RenderTransformOrigin="0.511,0.37" Margin="0,-2,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="320" />
-            <ColumnDefinition Width="240" />
-            <ColumnDefinition Width="275*" />
-            <ColumnDefinition Width="191*"/>
+            <ColumnDefinition Width="260*" />
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="185*" />
+            <ColumnDefinition Width="211*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="60" />
@@ -20,31 +25,31 @@
         </Grid.RowDefinitions>
 
         <!-- Navigation frame -->
-        <Frame Content="" Grid.RowSpan="2" Background="#FFFAF9F8" Margin="0,-30,3,0" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+        <Frame Content="" Grid.RowSpan="2" Margin="0,0,3,0" ScrollViewer.VerticalScrollBarVisibility="Auto" />
 
-        <!-- Description frame -->
-        <Frame Content="" Margin="315,-30,0,0" Grid.RowSpan="2" Background="#FFF3F1EF" Grid.ColumnSpan="2" Foreground="{x:Null}" BorderThickness="0" BorderBrush="#FFEAEAEA"/>
+        <!-- PS frame -->
+        <Frame Content="" Margin="315,-30,0,0" Grid.RowSpan="2" Grid.ColumnSpan="3" BorderThickness="0" Background="{DynamicResource SystemControlBackgroundBaseLowBrush}" Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}" ui:ThemeManager.RequestedTheme="Light"/>
 
         <!-- Category list -->
-        <ListBox x:Name="_listCategory" Background="{x:Null}" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionChanged="_listCategory_SelectionChanged" Margin="5,10,3,1" ScrollViewer.CanContentScroll="False" />
+        <ListBox x:Name="_listCategory" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionChanged="_listCategory_SelectionChanged" Margin="5,4,3,1" ScrollViewer.CanContentScroll="False" Background="{x:Null}"/>
 
         <!-- PS list-->
-        <ListBox x:Name="_listPS" Margin="5,0,5,1" Background="White" Grid.Column="2" Grid.Row="1"  IsEnabled="True" Focusable="True" IsHitTestVisible="True" FontSize="12" Padding="5" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionChanged="_listPS_SelectionChanged" SelectionMode="Extended" MouseDoubleClick="_listPS_MouseDoubleClick" />
+        <ListBox x:Name="_listPS" Margin="0,5,0,1" Grid.Column="1" Grid.Row="1"  IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionChanged="_listPS_SelectionChanged" SelectionMode="Extended" MouseDoubleClick="_listPS_MouseDoubleClick" Grid.ColumnSpan="2" Background="{x:Null}"/>
 
         <!-- PS console -->
-        <TextBox x:Name="_textPS" Grid.Column="3" Height="770" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0" FontFamily="Segoe UI Semilight" FontSize="12" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="_textPS" Grid.Column="4" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap" BorderThickness="0" FontFamily="Segoe UI Semilight" FontSize="12" VerticalScrollBarVisibility="Auto"/>
 
         <!-- Description -->
-        <RichTextBox x:Name="_textDescription" Grid.Column="1" BorderThickness="0" Block.LineHeight="2" Background="{x:Null}" IsReadOnly="True" IsDocumentEnabled="True" Margin="0,10,0,0" Grid.Row="1" >
+        <RichTextBox x:Name="_textDescription" Grid.Column="3" Margin="5,4,0,0" Grid.Row="1" IsReadOnly="True" IsDocumentEnabled="True" Block.LineHeight="2" BorderThickness="0">
             <FlowDocument>
                 <Paragraph>
-                    <Run Text="" />
+                    <Run Text="RichTextBox"/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
 
         <!-- Main menu -->
-        <Menu Height="Auto" HorizontalAlignment="Stretch" Margin="0,10" Grid.ColumnSpan="4">
+        <Menu Height="Auto" HorizontalAlignment="Stretch" Margin="0,10" Grid.ColumnSpan="5">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -61,10 +66,10 @@
                 <MenuItem Header="_Check for updates" FontFamily="Segoe UI" x:Name="Updates" Click="_menuUpdateCheck_Click" FontSize="18" />
             </MenuItem>
             <!-- Action buttons 1.Run / 2.Add / 3.Save / 4.More -->
-            <MenuItem Header="Apply setting" Grid.Column="2" HorizontalAlignment="Right" FontSize="16" Margin="0,0,242,0" x:Name="Apply" Click="_buttonApply_Click" ToolTip="Apply selected settings" Height="Auto"/>
-            <MenuItem Header="&#xE710;" Grid.Column="2" HorizontalAlignment="Right" FontSize="18" Margin="0,0,157,0" x:Name="Add" Click="_buttonAdd_Click" ToolTip="Import new settings and script files" FontFamily="Segoe MDL2 Assets" FontWeight="Bold"/>
+            <MenuItem Header="Apply" Grid.Column="2" HorizontalAlignment="Right" FontSize="16" Margin="0,-1,251,1" x:Name="Apply" Click="_buttonApply_Click" ToolTip="Apply selected settings" Height="Auto" FontFamily="Segoe UI Semibold"/>
+            <MenuItem Header="&#xE710;" Grid.Column="2" HorizontalAlignment="Right" FontSize="18" Margin="0,0,169,0" x:Name="Add" Click="_buttonAdd_Click" ToolTip="Import new settings and script files" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" RenderTransformOrigin="0.19,0.625"/>
 
-            <MenuItem Header="&#xE74E;" Grid.Column="2" HorizontalAlignment="Right" FontSize="18" Margin="0,0,71,0" RenderTransformOrigin="4.523,0.625" ToolTip="Save current script as new preset script" FontFamily="Segoe MDL2 Assets">
+            <MenuItem Header="&#xE74E;" Grid.Column="2" HorizontalAlignment="Right" FontSize="18" Margin="0,0,84,1" RenderTransformOrigin="4.523,0.625" ToolTip="Save current script as new preset script" FontFamily="Segoe MDL2 Assets">
                 <MenuItem Header="Save" FontFamily="Segoe UI" x:Name="Save" Click="_buttonSave_Click" FontSize="18" />
                 <MenuItem Header="Save as" FontFamily="Segoe UI" x:Name="SaveAs" Click="_buttonSaveAs_Click" FontSize="18" />
             </MenuItem>
@@ -83,7 +88,7 @@
 
         <!-- Welcome > My Account -->
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="45,42,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.548,1.429" FontSize="14" Height="19" Width="74">          
-            <Hyperlink Foreground="#e3008c" TextDecorations="None" NavigateUri="ms-settings:yourinfo" RequestNavigate="Hyperlink_RequestNavigate">
+            <Hyperlink TextDecorations="None" NavigateUri="ms-settings:yourinfo" RequestNavigate="Hyperlink_RequestNavigate">
                 My Account
             </Hyperlink>
         </TextBlock>

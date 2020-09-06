@@ -124,7 +124,6 @@ namespace Control
         {
             // Add description preset
             _textDescription.Document.Blocks.Clear();
-            _textDescription.Selection.Text = _psSelection;
 
             // Clear PS list
             _listPS.Items.Clear();
@@ -348,7 +347,7 @@ namespace Control
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
-            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
         }
     }
