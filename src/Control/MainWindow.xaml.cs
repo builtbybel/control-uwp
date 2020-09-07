@@ -30,7 +30,7 @@ namespace Control
                         "github.com/builtbybel/control-uwp\n\n" +
                         "You can also follow me on\n" +
                         "twitter.com/builtbybel\r\n\n" +
-                        "(C#) 2020, Builtbybel";
+                        "(C) 2020, Builtbybel";
 
         // General strings
         private string _fileName = "";
@@ -177,6 +177,7 @@ namespace Control
             try
             {
                 string psdir = @"settings\" + _listCategory.SelectedItem.ToString() + "\\" + _listPS.SelectedItem.ToString() + ".ps1";
+
                 using (StreamReader sr = new StreamReader(psdir, Encoding.Default))
                 {
                     StringBuilder content = new StringBuilder();
@@ -185,7 +186,7 @@ namespace Control
                     while (!sr.EndOfStream)
                         content.AppendLine(sr.ReadLine());
 
-                    // Show content
+                    // Show code
                     _textPS.Text = content.ToString();
 
                     // Show description
@@ -330,9 +331,21 @@ namespace Control
             SaveFile(true);
         }
 
+        private void _buttonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Process process = new Process();
+                process.StartInfo.FileName = "powershell_ise.exe";
+                process.StartInfo.Arguments = "\"" + @"settings\" + _listCategory.SelectedItem.ToString() + "\\" + _listPS.SelectedItem.ToString() + ".ps1" + "\"";
+                process.Start();
+            }
+            catch { }
+        }
+
         private void _menuRefresh_Click(object sender, RoutedEventArgs e)
         {
-            PopulatePS();
+            try { PopulatePS(); } catch { }
         }
 
         private void _menuSelectAll_Click(object sender, RoutedEventArgs e)
