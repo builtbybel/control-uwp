@@ -30,7 +30,7 @@ namespace Control
                         "github.com/builtbybel/control-uwp\n\n" +
                         "You can also follow me on\n" +
                         "twitter.com/builtbybel\r\n\n" +
-                        "(C) 2020, Builtbybel";
+                        "(C) 2020, Builtbybel (Website: www.builtbybel.com)";
 
         // General strings
         private string _fileName = "";
@@ -38,7 +38,7 @@ namespace Control
         private string _dialogFileTypes = "PS file (*.ps1)|*.ps1|Text file (*.txt)|*.txt";
 
         // PowerShell strings
-        private readonly string _psDone = "Selected settings have been successfully applied.";
+        private readonly string _psError = "Settings folder not found.\nPlease check if it is stored in the installations directory of ControlUWP.";
 
         private readonly string _psSelection = "Select a page to retrieve the appropriate settings.";
 
@@ -95,6 +95,11 @@ namespace Control
             UpdateCheck();
         }
 
+        private void _menuGitHubLink_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/builtbybel/control-uwp");
+        }
+
         private void _menuInfo_Click(object sender, RoutedEventArgs e)
         {
             _textDescription.Document.Blocks.Clear();
@@ -117,12 +122,13 @@ namespace Control
             // Populate Categories
             PopulateCategory();
 
+            // Welcome
             _labelWelcomeUsername.Content = Environment.UserName;
         }
 
         private void Reset()
         {
-            // Add description preset
+            // Clear description
             _textDescription.Document.Blocks.Clear();
 
             // Clear PS list
@@ -140,12 +146,18 @@ namespace Control
             // Clear list
             _listCategory.Items.Clear();
 
-            String[] dirs = System.IO.Directory.GetDirectories(@"settings");
-            int i;
-            for (i = 0; i < dirs.Length; i++)
+            string path = @"settings";
+
+            if (Directory.Exists(path))
             {
-                _listCategory.Items.Add(Path.GetFileNameWithoutExtension(dirs[i]));
+                String[] dirs = System.IO.Directory.GetDirectories(@"settings");
+                int i;
+                for (i = 0; i < dirs.Length; i++)
+                {
+                    _listCategory.Items.Add(Path.GetFileNameWithoutExtension(dirs[i]));
+                }
             }
+            else MessageBox.Show(_psError);
         }
 
         /// <summary>
@@ -157,8 +169,8 @@ namespace Control
             Reset();
 
             DirectoryInfo dirs = new DirectoryInfo(@"settings\" + _listCategory.SelectedItem.ToString());
-            FileInfo[] listPolicies = dirs.GetFiles("*.ps1");
-            foreach (FileInfo fi in listPolicies)
+            FileInfo[] listFiles = dirs.GetFiles("*.ps1");
+            foreach (FileInfo fi in listFiles)
             {
                 _listPS.Items.Add(Path.GetFileNameWithoutExtension(fi.Name));
             }
@@ -186,12 +198,11 @@ namespace Control
                     while (!sr.EndOfStream)
                         content.AppendLine(sr.ReadLine());
 
+                    // Show description
+                    _textDescription.Selection.Text = string.Join(Environment.NewLine, File.ReadAllLines(psdir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\r\n")));
+
                     // Show code
                     _textPS.Text = content.ToString();
-
-                    // Show description
-                    _textDescription.Document.Blocks.Clear();
-                    _textDescription.Selection.Text = string.Join(Environment.NewLine, File.ReadAllLines(psdir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\r\n")));
                 }
             }
             catch { } // Off
@@ -200,28 +211,42 @@ namespace Control
         /// <summary>
         /// Run PS files
         /// </summary>
-        private void _buttonApply_Click(object sender, RoutedEventArgs e)
+        private string ApplySettings()
         {
-            // Blurring the main/parent window
-            System.Windows.Media.Effects.BlurEffect myBlur = new System.Windows.Media.Effects.BlurEffect();
-            myBlur.Radius = 5;
-            this.Effect = myBlur;
+            string applied = "Applied settings:\n";
 
             if (_listPS.SelectedItems.Count == 0)
             {
                 MessageBox.Show(_psSelection, "", MessageBoxButton.OK);
                 this.Effect = null;
-
-                return;
             }
 
             foreach (var item in _listPS.SelectedItems)
             {
+                // Blurring main window
+                System.Windows.Media.Effects.BlurEffect myBlur = new System.Windows.Media.Effects.BlurEffect();
+                myBlur.Radius = 5;
+                this.Effect = myBlur;
+
                 string psdir = @"settings\" + _listCategory.SelectedItem.ToString() + "\\" + item.ToString() + ".ps1";
                 var ps1File = psdir;
 
-                // Run ps?
-                if (_listPS.SelectedItem.ToString().Contains("(Uri)"))
+                var equals = new[] { "Script", "All" };
+                var str = _textDescription.Selection.Text;
+
+                // Create ConsoleWindow
+                if (equals.Any(str.Contains))
+                {
+                    var startInfo = new ProcessStartInfo()
+                    {
+                        FileName = "powershell.exe",
+                        Arguments = $"-executionpolicy bypass -file \"{ps1File}\"",
+                        UseShellExecute = false,
+                    };
+
+                    Process.Start(startInfo).WaitForExit();
+                }
+                else   // Silent
                 {
                     var startInfo = new ProcessStartInfo()
                     {
@@ -233,24 +258,17 @@ namespace Control
 
                     Process.Start(startInfo).WaitForExit();
                 }
-                else
-                {
-                    var startInfo = new ProcessStartInfo()
-                    {
-                        FileName = "powershell.exe",
-                        Arguments = $"-executionpolicy bypass -file \"{ps1File}\"",
-                        UseShellExecute = false,
-                    };
 
-                    Process.Start(startInfo).WaitForExit();
-                }
+                applied += "\t" + item.ToString() + "\n";
             }
 
-            // Done!
-            MessageBox.Show(_psDone);
+            return applied;
+        }
 
-            // Removing the blur effect
-            this.Effect = null;
+        private void _buttonApply_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(ApplySettings());   // Apply settings
+            this.Effect = null;                 // Remove blur effect
         }
 
         private void _buttonAdd_Click(object sender, RoutedEventArgs e)

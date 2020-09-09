@@ -32,10 +32,10 @@
         <ListBox x:Name="_listCategory" Grid.Row="1" SelectionChanged="_listCategory_SelectionChanged" Margin="5,4,0,1" ui:ScrollViewerHelper.AutoHideScrollBars="True" Background="{x:Null}" HorizontalAlignment="Left" Width="310"/>
 
         <!-- PS list-->
-        <ListBox x:Name="_listPS" Margin="0,5,0,1" Grid.Column="1" Grid.Row="1"  IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionChanged="_listPS_SelectionChanged" SelectionMode="Extended" MouseDoubleClick="_listPS_MouseDoubleClick" Background="{x:Null}" ScrollViewer.CanContentScroll="False"/>
+        <ListBox x:Name="_listPS" Margin="0,5,0,1" Grid.Column="1" Grid.Row="1"  IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionChanged="_listPS_SelectionChanged" SelectionMode="Extended" MouseDoubleClick="_listPS_MouseDoubleClick" Background="{x:Null}"/>
 
         <!-- PS console -->
-        <TextBox x:Name="_textPS" Grid.Column="3" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap" BorderThickness="0" FontFamily="Segoe UI Semilight" FontSize="12" ui:ScrollViewerHelper.AutoHideScrollBars="True" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="_textPS" Grid.Column="3" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap" BorderThickness="0" FontFamily="Segoe UI Semilight" FontSize="12" VerticalScrollBarVisibility="Auto"/>
 
         <!-- Description -->
         <RichTextBox x:Name="_textDescription" Grid.Column="2" Margin="5,4,0,0" Grid.Row="1" IsReadOnly="True" IsDocumentEnabled="True" Block.LineHeight="2" BorderThickness="0" HorizontalScrollBarVisibility="Disabled">
@@ -60,8 +60,9 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
             <MenuItem Header="&#xE700;" Grid.Column="0"  FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="5,0,0,0">
-                <MenuItem Header="_Info" FontFamily="Segoe UI" x:Name="Info" Click="_menuInfo_Click" FontSize="18" />
+                <MenuItem Header="_Follow on GitHub" FontFamily="Segoe UI" x:Name="GitHub" Click="_menuGitHubLink_Click" FontSize="18" />
                 <MenuItem Header="_Check for updates" FontFamily="Segoe UI" x:Name="Updates" Click="_menuUpdateCheck_Click" FontSize="18" />
+                <MenuItem Header="_Info" FontFamily="Segoe UI" x:Name="Info" Click="_menuInfo_Click" FontSize="18" />
             </MenuItem>
             <!-- Action buttons 1.Run / 2.Add / 3.Save / 4.More -->
             <MenuItem Header="Apply" Grid.Column="2" HorizontalAlignment="Right" FontSize="16" Margin="0,-1,251,1" x:Name="Apply" Click="_buttonApply_Click" ToolTip="Apply selected settings" Height="Auto" FontFamily="Segoe UI Semibold"/>
@@ -91,7 +92,6 @@
                 My Account
             </Hyperlink>
         </TextBlock>
-
 
     </Grid>
 </Window>
