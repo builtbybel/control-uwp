@@ -27,7 +27,7 @@ alt="GitHub issues">
 </p>
 
 <p align="center">
-  <a href="#about">About this project</a> •
+  <a href="#what-is-controluwp-and-why-do-i-care">About this project</a> •
   <a href="#download">Download the app</a>
 </p>
 
