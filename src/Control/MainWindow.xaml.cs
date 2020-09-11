@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
 
@@ -35,7 +36,7 @@ namespace Control
         // General strings
         private string _fileName = "";
 
-        private string _dialogFileTypes = "PS file (*.ps1)|*.ps1|Text file (*.txt)|*.txt";
+        private readonly string _dialogFileTypes = "PS file (*.ps1)|*.ps1|Text file (*.txt)|*.txt";
 
         // PowerShell strings
         private readonly string _psError = "Settings folder not found.\nPlease check if it is stored in the installations directory of ControlUWP.";
@@ -194,7 +195,7 @@ namespace Control
                 {
                     StringBuilder content = new StringBuilder();
 
-                    // writes line by line to the StringBuilder until the end of the file is reached
+                    // Writes line by line to the StringBuilder until the end of the file is reached
                     while (!sr.EndOfStream)
                         content.AppendLine(sr.ReadLine());
 
@@ -211,23 +212,24 @@ namespace Control
         /// <summary>
         /// Run PS files
         /// </summary>
-        private string ApplySettings()
+        private async void ApplySettings()
         {
             string applied = "Applied settings:\n";
+
+            // Add some cosmetics during runtime
+            System.Windows.Media.Effects.BlurEffect myBlur = new System.Windows.Media.Effects.BlurEffect();             //Blurring main window
+            myBlur.Radius = 5;
+            this.Effect = myBlur;
+            _listCategory.IsEnabled = false;
+            _listPS.IsEnabled = false;
 
             if (_listPS.SelectedItems.Count == 0)
             {
                 MessageBox.Show(_psSelection, "", MessageBoxButton.OK);
-                this.Effect = null;
             }
 
             foreach (var item in _listPS.SelectedItems)
             {
-                // Blurring main window
-                System.Windows.Media.Effects.BlurEffect myBlur = new System.Windows.Media.Effects.BlurEffect();
-                myBlur.Radius = 5;
-                this.Effect = myBlur;
-
                 string psdir = @"settings\" + _listCategory.SelectedItem.ToString() + "\\" + item.ToString() + ".ps1";
                 var ps1File = psdir;
 
@@ -244,7 +246,10 @@ namespace Control
                         UseShellExecute = false,
                     };
 
-                    Process.Start(startInfo).WaitForExit();
+                    await Task.Run(() =>
+                    {
+                        Process.Start(startInfo).WaitForExit();
+                    });
                 }
                 else   // Silent
                 {
@@ -256,19 +261,26 @@ namespace Control
                         CreateNoWindow = true,
                     };
 
-                    Process.Start(startInfo).WaitForExit();
+                    await Task.Run(() =>
+                    {
+                        Process.Start(startInfo).WaitForExit();
+                    });
                 }
 
                 applied += "\t" + item.ToString() + "\n";
             }
 
-            return applied;
+            MessageBox.Show(applied);    // Apply settings
+
+            // Remove cosmetics
+            this.Effect = null;
+            _listCategory.IsEnabled = true;
+            _listPS.IsEnabled = true;
         }
 
         private void _buttonApply_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(ApplySettings());   // Apply settings
-            this.Effect = null;                 // Remove blur effect
+            ApplySettings();
         }
 
         private void _buttonAdd_Click(object sender, RoutedEventArgs e)

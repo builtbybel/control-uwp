@@ -14,8 +14,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="320" />
             <ColumnDefinition Width="310*" />
-            <ColumnDefinition Width="185*" />
-            <ColumnDefinition Width="211*"/>
+            <ColumnDefinition Width="200*" />
+            <ColumnDefinition Width="200*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" MinHeight="60" />
@@ -65,7 +65,7 @@
                 <MenuItem Header="_Info" FontFamily="Segoe UI" x:Name="Info" Click="_menuInfo_Click" FontSize="18" />
             </MenuItem>
             <!-- Action buttons 1.Run / 2.Add / 3.Save / 4.More -->
-            <MenuItem Header="Apply" Grid.Column="2" HorizontalAlignment="Right" FontSize="16" Margin="0,-1,251,1" x:Name="Apply" Click="_buttonApply_Click" ToolTip="Apply selected settings" Height="Auto" FontFamily="Segoe UI Semibold"/>
+            <MenuItem Header="Apply" Grid.Column="2" HorizontalAlignment="Right" FontSize="16" Margin="0,-1,251,1" x:Name="Apply" Click="_buttonApply_Click" ToolTip="Apply selected settings" Height="Auto"/>
             <MenuItem Header="&#xE710;" Grid.Column="2" HorizontalAlignment="Right" FontSize="18" Margin="0,0,169,0" x:Name="Add" Click="_buttonAdd_Click" ToolTip="Import new settings and script files" FontFamily="Segoe MDL2 Assets" FontWeight="Bold" RenderTransformOrigin="0.19,0.625"/>
 
             <MenuItem Header="&#xE74E;" Grid.Column="2" HorizontalAlignment="Right" FontSize="18" Margin="0,0,84,1" RenderTransformOrigin="4.523,0.625" ToolTip="Save current script as new preset script" FontFamily="Segoe MDL2 Assets">
