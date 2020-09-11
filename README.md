@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h3 align="center">Windows 10 Settings app where everything is in place</h3>
+<h3 align="center">An enthusiast take on what the Windows 10 Settings app should be and where everything is in place.</h3>
 
 <p align="center">
 <a href="https://github.com/builtbybel/control-uwp/releases/latest" target="_blank">
