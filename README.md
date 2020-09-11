@@ -33,7 +33,7 @@ alt="GitHub issues">
 
 ![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp.png)
 
-## About
+## What is ControlUWP and why do I care?
 
 This is currently an experimental project of mine, maybe more concept than app which I hope to expand soon.
 I work a lot with PowerShell and also like to automate. I have now packed some of my scripts into a GUI named **ControlUWP** and the result is a new Windows 10 Settings app concept. 
