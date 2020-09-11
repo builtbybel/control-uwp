@@ -35,7 +35,7 @@ alt="GitHub issues">
 
 ## About
 
-Here is another small experimental project of mine, maybe more concept than app which I hope to expand soon.
+This is currently an experimental project of mine, maybe more concept than app which I hope to expand soon.
 I work a lot with PowerShell and also like to automate. I have now packed some of my scripts into a GUI named **ControlUWP** and the result is a new Windows 10 Settings app concept. 
 
 It’s also not a secret that the Windows 10 Settings app is not everyone’s cup of tea. 
