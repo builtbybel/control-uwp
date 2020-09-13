@@ -38,8 +38,8 @@ alt="GitHub issues">
 This is currently an experimental project of mine, maybe more concept than app which I hope to expand soon.
 I work a lot with PowerShell and also like to automate. I have now packed some of my scripts into a GUI named **ControlUWP** and the result is a new Windows 10 Settings app concept. 
 
-It’s also not a secret that the Windows 10 Settings app is not everyone’s cup of tea. 
-
+It’s also not a secret that the Windows 10 Settings app is not everyone’s cup of tea. The modern version of the settings control is limited and missing a majority of options you can access in the classic control panel.
+ 
 ControlUWP app doesn't replace (currently) the native Windows 10 settings panel but bundles the most important locations and recommended settings in one place and you can open and execute them in bulk. It is completely modular and based on PowerShell scripts. 
 Everybody can map his favorite settings as he wants.
 
