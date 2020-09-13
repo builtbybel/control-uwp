@@ -101,13 +101,6 @@ namespace Control
             Process.Start("https://github.com/builtbybel/control-uwp");
         }
 
-        private void _menuInfo_Click(object sender, RoutedEventArgs e)
-        {
-            _textDescription.Document.Blocks.Clear();
-            _textDescription.Selection.Text = _appVersion + "\r\n\n" + _appInfo;
-            _textDescription.Focus();
-        }
-
         public MainWindow()
         {
             InitializeComponent();
@@ -183,6 +176,22 @@ namespace Control
         }
 
         /// <summary>
+        ///  Count Installed Settings/PS files
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="searchPattern"></param>
+        /// <param name="searchOption"></param>
+        /// <returns></returns>
+        public static int EnumeratePS(string path, string searchPattern, SearchOption searchOption)
+        {
+            var fileCount = 0;
+            var fileIter = Directory.EnumerateFiles(path, searchPattern, searchOption);
+            foreach (var file in fileIter)
+                fileCount++;
+            return fileCount;
+        }
+
+        /// <summary>
         /// Read PS content line by line
         /// </summary>
         private void _listPS_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -220,6 +229,7 @@ namespace Control
             System.Windows.Media.Effects.BlurEffect myBlur = new System.Windows.Media.Effects.BlurEffect();             //Blurring main window
             myBlur.Radius = 5;
             this.Effect = myBlur;
+            _menu.IsEnabled = false;
             _listCategory.IsEnabled = false;
             _listPS.IsEnabled = false;
 
@@ -246,10 +256,7 @@ namespace Control
                         UseShellExecute = false,
                     };
 
-                    await Task.Run(() =>
-                    {
-                        Process.Start(startInfo).WaitForExit();
-                    });
+                    await Task.Run(() => { Process.Start(startInfo).WaitForExit(); });
                 }
                 else   // Silent
                 {
@@ -261,19 +268,17 @@ namespace Control
                         CreateNoWindow = true,
                     };
 
-                    await Task.Run(() =>
-                    {
-                        Process.Start(startInfo).WaitForExit();
-                    });
+                    await Task.Run(() => { Process.Start(startInfo).WaitForExit(); });
                 }
 
                 applied += "\t" + item.ToString() + "\n";
             }
 
-            MessageBox.Show(applied);    // Apply settings
+            MessageBox.Show(applied);    // Show applied settings
 
             // Remove cosmetics
             this.Effect = null;
+            _menu.IsEnabled = true;
             _listCategory.IsEnabled = true;
             _listPS.IsEnabled = true;
         }
@@ -392,6 +397,13 @@ namespace Control
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
+        }
+
+        private void _menuInfo_Click(object sender, RoutedEventArgs e)
+        {
+            _textDescription.Document.Blocks.Clear();
+            _textDescription.Selection.Text = _appVersion + "\r\n\n" + _appInfo + "\r\n\n" + "Settings installed: " + EnumeratePS(@"settings", "*.ps1", SearchOption.AllDirectories);
+            _textDescription.Focus();
         }
     }
 }
