@@ -172,6 +172,8 @@ namespace Control
 
         private void _listCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            Reset();
+
             PopulatePS();
         }
 
@@ -271,10 +273,10 @@ namespace Control
                     await Task.Run(() => { Process.Start(startInfo).WaitForExit(); });
                 }
 
-                applied += "\t" + item.ToString() + "\n";
+                applied += "- " + item.ToString() + "\n";
             }
 
-            MessageBox.Show(applied);    // Show applied settings
+            _textDescription.Selection.Text = applied;    // Show applied settings
 
             // Remove cosmetics
             this.Effect = null;
