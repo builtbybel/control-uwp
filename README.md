@@ -13,14 +13,14 @@
 <img alt="Latest GitHub release" src="https://img.shields.io/github/release/builtbybel/control-uwp.svg?style=flat-square" />
 </a>
 	
-<a href="https://github.com/builtbybel/bloatbox/releases" target="_blank">
+<a href="https://github.com/builtbybel/control-uwp/releases" target="_blank">
 <img alt="Downloads on GitHub" src="https://img.shields.io/github/downloads/builtbybel/control-uwp/total.svg?style=flat-square" />
 </a>
 
-<a href="https://github.com/builtbybel/bloatbox/commits/master">
+<a href="https://github.com/builtbybel/control-uwp/commits/master">
 <img src="https://img.shields.io/github/last-commit/builtbybel/control-uwp.svg?style=flat-square&logo=github&logoColor=white"
 alt="GitHub last commit">
-<a href="https://github.com/builtbybel/bloatbox/issues">
+<a href="https://github.com/builtbybel/control-uwp/issues">
 <img src="https://img.shields.io/github/issues-raw/builtbybel/control-uwp.svg?style=flat-square&logo=github&logoColor=white"
 alt="GitHub issues">   
   
