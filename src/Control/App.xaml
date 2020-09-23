@@ -10,7 +10,7 @@
                 <ui:ThemeResources>
                     <ui:ThemeResources.ThemeDictionaries>
                         <ResourceDictionary x:Key="Light" ui:ThemeDictionary.Key="Light">
-                            <SolidColorBrush x:Key="AppBackgroundBrush" Color="#E6E6E6" />
+                            <SolidColorBrush x:Key="AppBackgroundBrush" Color="#EFEFEF" />
                         </ResourceDictionary>
                         <ResourceDictionary x:Key="Dark" ui:ThemeDictionary.Key="Dark">
                             <SolidColorBrush x:Key="AppBackgroundBrush" Color="#FF232323" />

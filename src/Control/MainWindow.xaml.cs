@@ -31,7 +31,7 @@ namespace Control
                         "github.com/builtbybel/control-uwp\n\n" +
                         "You can also follow me on\n" +
                         "twitter.com/builtbybel\r\n\n" +
-                        "(C) 2020, Builtbybel (Website: www.builtbybel.com)";
+                        "(C) 2020, Builtbybel";
 
         // General strings
         private string _fileName = "";
@@ -118,15 +118,18 @@ namespace Control
 
             // Welcome
             _labelWelcomeUsername.Content = Environment.UserName;
+
+            // Settings insalled
+            _labelSettingsInstalled.Content = EnumeratePS(@"settings", "*.ps1", SearchOption.AllDirectories) + " Settings installed";
         }
 
         private void Reset()
         {
-            // Clear description
-            _textDescription.Document.Blocks.Clear();
-
             // Clear PS list
             _listPS.Items.Clear();
+
+            // Clear description
+            _textDescription.Document.Blocks.Clear();
 
             // Clear PS console
             _textPS.Text = "";
@@ -172,8 +175,6 @@ namespace Control
 
         private void _listCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            Reset();
-
             PopulatePS();
         }
 
@@ -290,6 +291,11 @@ namespace Control
             ApplySettings();
         }
 
+        private void _listPS_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            _buttonApply_Click(sender, e);
+        }
+
         private void _buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openDlg = new OpenFileDialog
@@ -353,11 +359,6 @@ namespace Control
             return saveDlg;
         }
 
-        private void _listPS_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            _buttonApply_Click(sender, e);
-        }
-
         private void _buttonSave_Click(object sender, RoutedEventArgs e)
         {
             SaveFile();
@@ -404,7 +405,7 @@ namespace Control
         private void _menuInfo_Click(object sender, RoutedEventArgs e)
         {
             _textDescription.Document.Blocks.Clear();
-            _textDescription.Selection.Text = _appVersion + "\r\n\n" + _appInfo + "\r\n\n" + "Settings installed: " + EnumeratePS(@"settings", "*.ps1", SearchOption.AllDirectories);
+            _textDescription.Selection.Text = _appVersion + "\r\n\n" + _appInfo;
             _textDescription.Focus();
         }
     }
