@@ -17,9 +17,6 @@ namespace Control
         // App strings
         private readonly string _releaseURL = "https://raw.githubusercontent.com/builtbybel/control-uwp/master/latest.txt";
 
-        private readonly string _releaseUpToDate = "There are currently no updates available.";
-        private readonly string _releaseUnofficial = "You are using an unoffical version of ControlUWP.";
-
         internal static string GetCurrentVersionTostring() => Assembly.GetExecutingAssembly().GetName().Version.ToString(3);
 
         public Version CurrentVersion = new Version(GetCurrentVersionTostring());
@@ -69,31 +66,24 @@ namespace Control
 
             if (equals == 0)
             {
-                _textDescription.Selection.Text = _appVersion + "\r\n\n" + _releaseUpToDate; // Up-to-date
-                _textDescription.Focus();
+                _buttonUpdateAvailable.Visibility = Visibility.Hidden; // Up-to-date
+                _labelSettings.Visibility = Visibility.Visible;
             }
             else if (equals < 0)
             {
-                _textDescription.Selection.Text = _appVersion + "\r\n\n" + _releaseUnofficial;  // Unofficial
-                _textDescription.Focus();
+                _buttonUpdateAvailable.Visibility = Visibility.Hidden;   // Unofficial
+                _labelSettings.Visibility = Visibility.Visible;
             }
             else    // New release available!
             {
-                _textDescription.Document.Blocks.Clear();
-                _textDescription.Selection.Text = _appVersion + "\r\n\n" + _appInfo;
-                _textDescription.Focus();
-
-                if (MessageBox.Show("There is a new version available " + LatestVersion + "\n\nDo you want to open the @github/releases page?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
-                {
-                    Process.Start("https://github.com/builtbybel/control-uwp/releases/tag/" + LatestVersion);
-                }
+                _buttonUpdateAvailable.Visibility = Visibility.Visible;
+                _labelSettings.Visibility = Visibility.Hidden;
             }
         }
 
-        private void _menuUpdateCheck_Click(object sender, RoutedEventArgs e)
+        private void _buttonUpdateAvailable_Click(object sender, RoutedEventArgs e)
         {
-            _textDescription.Document.Blocks.Clear();
-            UpdateCheck();
+            Process.Start("https://github.com/builtbybel/control-uwp/releases/tag/" + LatestVersion);
         }
 
         private void _menuGitHubLink_Click(object sender, RoutedEventArgs e)
@@ -105,7 +95,11 @@ namespace Control
         {
             InitializeComponent();
 
+            // Add settings
             InitializeShell();
+
+            // Check for app updates
+            UpdateCheck();
         }
 
         private void InitializeShell()
@@ -141,7 +135,7 @@ namespace Control
         private void PopulateCategory()
         {
             // Clear list
-            _listCategory.Items.Clear();
+            NavView.MenuItems.Clear();
 
             string path = @"settings";
 
@@ -151,7 +145,7 @@ namespace Control
                 int i;
                 for (i = 0; i < dirs.Length; i++)
                 {
-                    _listCategory.Items.Add(Path.GetFileNameWithoutExtension(dirs[i]));
+                    NavView.MenuItems.Add(Path.GetFileNameWithoutExtension(dirs[i]));
                 }
             }
             else MessageBox.Show(_psError);
@@ -165,7 +159,7 @@ namespace Control
             // Reset
             Reset();
 
-            DirectoryInfo dirs = new DirectoryInfo(@"settings\" + _listCategory.SelectedItem.ToString());
+            DirectoryInfo dirs = new DirectoryInfo(@"settings\" + NavView.SelectedItem.ToString());
             FileInfo[] listFiles = dirs.GetFiles("*.ps1");
             foreach (FileInfo fi in listFiles)
             {
@@ -173,9 +167,37 @@ namespace Control
             }
         }
 
-        private void _listCategory_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void NavView_SelectionChanged(ModernWpf.Controls.NavigationView sender, ModernWpf.Controls.NavigationViewSelectionChangedEventArgs args)
         {
             PopulatePS();
+        }
+
+        /// <summary>
+        /// Read PS content line by line
+        /// </summary>
+        private void _listPS_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            try
+            {
+                string psdir = @"settings\" + NavView.SelectedItem.ToString() + "\\" + _listPS.SelectedItem.ToString() + ".ps1";
+
+                using (StreamReader sr = new StreamReader(psdir, Encoding.Default))
+                {
+                    StringBuilder content = new StringBuilder();
+
+                    // Writes line by line to the StringBuilder until the end of the file is reached
+                    while (!sr.EndOfStream)
+                        content.AppendLine(sr.ReadLine());
+
+                    // Show description
+                    _textDescription.Document.Blocks.Clear();
+                    _textDescription.Selection.Text = string.Join(Environment.NewLine, File.ReadAllLines(psdir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\r\n")));
+
+                    // Show code
+                    _textPS.Text = content.ToString();
+                }
+            }
+            catch { } // Off
         }
 
         /// <summary>
@@ -195,33 +217,6 @@ namespace Control
         }
 
         /// <summary>
-        /// Read PS content line by line
-        /// </summary>
-        private void _listPS_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-        {
-            try
-            {
-                string psdir = @"settings\" + _listCategory.SelectedItem.ToString() + "\\" + _listPS.SelectedItem.ToString() + ".ps1";
-
-                using (StreamReader sr = new StreamReader(psdir, Encoding.Default))
-                {
-                    StringBuilder content = new StringBuilder();
-
-                    // Writes line by line to the StringBuilder until the end of the file is reached
-                    while (!sr.EndOfStream)
-                        content.AppendLine(sr.ReadLine());
-
-                    // Show description
-                    _textDescription.Selection.Text = string.Join(Environment.NewLine, File.ReadAllLines(psdir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\r\n")));
-
-                    // Show code
-                    _textPS.Text = content.ToString();
-                }
-            }
-            catch { } // Off
-        }
-
-        /// <summary>
         /// Run PS files
         /// </summary>
         private async void ApplySettings()
@@ -233,7 +228,7 @@ namespace Control
             myBlur.Radius = 5;
             this.Effect = myBlur;
             _menu.IsEnabled = false;
-            _listCategory.IsEnabled = false;
+            NavView.IsEnabled = false;
             _listPS.IsEnabled = false;
 
             if (_listPS.SelectedItems.Count == 0)
@@ -243,7 +238,7 @@ namespace Control
 
             foreach (var item in _listPS.SelectedItems)
             {
-                string psdir = @"settings\" + _listCategory.SelectedItem.ToString() + "\\" + item.ToString() + ".ps1";
+                string psdir = @"settings\" + NavView.SelectedItem.ToString() + "\\" + item.ToString() + ".ps1";
                 var ps1File = psdir;
 
                 var equals = new[] { "Script", "All" };
@@ -282,7 +277,7 @@ namespace Control
             // Remove cosmetics
             this.Effect = null;
             _menu.IsEnabled = true;
-            _listCategory.IsEnabled = true;
+            NavView.IsEnabled = true;
             _listPS.IsEnabled = true;
         }
 
@@ -314,7 +309,7 @@ namespace Control
                 {
                     try
                     {
-                        string strDestPath = @"settings\" + _listCategory.SelectedItem.ToString();
+                        string strDestPath = @"settings\" + NavView.SelectedItem.ToString();
                         File.Copy(fileName, strDestPath + @"\" + Path.GetFileName(fileName));
 
                         // Refresh
@@ -375,7 +370,7 @@ namespace Control
             {
                 Process process = new Process();
                 process.StartInfo.FileName = "powershell_ise.exe";
-                process.StartInfo.Arguments = "\"" + @"settings\" + _listCategory.SelectedItem.ToString() + "\\" + _listPS.SelectedItem.ToString() + ".ps1" + "\"";
+                process.StartInfo.Arguments = "\"" + @"settings\" + NavView.SelectedItem.ToString() + "\\" + _listPS.SelectedItem.ToString() + ".ps1" + "\"";
                 process.Start();
             }
             catch { }

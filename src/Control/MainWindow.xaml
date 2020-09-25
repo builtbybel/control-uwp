@@ -25,16 +25,27 @@
         </Grid.RowDefinitions>
 
         <!-- Navigation frame -->
-        <Frame Content="" Grid.RowSpan="2" Margin="0,-30,3,0" Background="{DynamicResource AppBackgroundBrush}" />
+        <Frame Content="" Grid.RowSpan="2" Margin="0,-30,0,0" Width="320" Background="{DynamicResource AppBackgroundBrushNav}" HorizontalAlignment="Left" />
+
+        <!-- NavigationView/Categories -->
+        <ui:NavigationView x:Name="NavView"
+        IsPaneToggleButtonVisible="False"
+        Header="ControlUWP"
+        IsBackButtonVisible="Collapsed"
+        IsSettingsVisible="false"
+        IsTitleBarAutoPaddingEnabled="true"
+        SelectionFollowsFocus="Enabled"
+        PaneDisplayMode="Left" SelectionChanged="NavView_SelectionChanged" Margin="0,74,0,1" Grid.Row="1" />
 
         <!-- PS frame -->
         <Frame Content="" Margin="315,-30,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2" BorderThickness="0" />
 
-        <!-- Category list -->
-        <ListBox x:Name="_listCategory" Grid.Row="1" SelectionChanged="_listCategory_SelectionChanged" Margin="0,69,0,1" ui:ScrollViewerHelper.AutoHideScrollBars="True" Background="{x:Null}" HorizontalAlignment="Left" Width="317" />
-
         <!-- PS list-->
-        <ListBox x:Name="_listPS" Margin="0,10,0,1" Grid.Column="1"  IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" ui:ScrollViewerHelper.AutoHideScrollBars="True" SelectionChanged="_listPS_SelectionChanged" SelectionMode="Extended" MouseDoubleClick="_listPS_MouseDoubleClick" Background="{x:Null}" Grid.Row="1" />
+        <ListBox x:Name="_listPS" Margin="0,10,0,1" Grid.Column="1"  IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" SelectionChanged="_listPS_SelectionChanged" SelectionMode="Extended" MouseDoubleClick="_listPS_MouseDoubleClick" Background="{x:Null}" Grid.Row="1" />
+
+        <!-- Settings menu-->
+        <Label x:Name="_labelSettings" Content="Settings" Grid.Column="1" HorizontalAlignment="Left" Margin="20,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.909,-2.105" Height="37" Width="135" FontSize="24" FontFamily="Segoe UI Semibold" />
+        <Label x:Name="_labelSettingsInstalled" Content="Settings installed" Grid.Column="1" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.364,-0.263" Width="230" />
 
         <!-- PS console -->
         <TextBox x:Name="_textPS" Grid.Column="3" Margin="0,4,0,0" Grid.Row="1" TextWrapping="Wrap" BorderThickness="0" FontFamily="Segoe UI Semilight" FontSize="12" VerticalScrollBarVisibility="Auto" />
@@ -63,7 +74,6 @@
             </Menu.ItemsPanel>
             <MenuItem Header="&#xE700;" Grid.Column="0"  FontFamily="Segoe MDL2 Assets" FontSize="18">
                 <MenuItem Header="_Follow on GitHub" FontFamily="Segoe UI" x:Name="GitHub" Click="_menuGitHubLink_Click" FontSize="18" />
-                <MenuItem Header="_Check for updates" FontFamily="Segoe UI" x:Name="Updates" Click="_menuUpdateCheck_Click" FontSize="18" />
                 <MenuItem Header="_Info" FontFamily="Segoe UI" x:Name="Info" Click="_menuInfo_Click" FontSize="18" />
             </MenuItem>
 
@@ -86,16 +96,16 @@
         </Menu>
 
         <!-- Welcome -->
-        <Label x:Name="_labelWelcome" Content="&#xE77B;" FontFamily="Segoe MDL2 Assets" FontSize="22" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.333,2.105" Height="30" Width="25" Grid.Row="1" />
-        <Label x:Name="_labelWelcomeUsername" Content="builtbybel" Margin="45,58,10,0" VerticalAlignment="Top" FontSize="22" RenderTransformOrigin="0.548,1.429" Height="33" Grid.RowSpan="2" />
+        <Label x:Name="_labelWelcomeUsername" Content="builtbybel" Margin="0,58,10,0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="22" RenderTransformOrigin="0.548,1.429" Height="33" Grid.RowSpan="2" />
 
         <!-- Welcome > My Account -->
-        <TextBlock HorizontalAlignment="Left" Margin="45,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.548,1.429" FontSize="14" Height="19" Width="74" Grid.Row="1">
+        <TextBlock HorizontalAlignment="Center" Margin="0,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.548,1.429" FontSize="14" Height="19" Width="74" Grid.Row="1">
             <Hyperlink TextDecorations="None" NavigateUri="ms-settings:yourinfo" RequestNavigate="Hyperlink_RequestNavigate">
                 My Account
             </Hyperlink>
         </TextBlock>
-        <Label x:Name="_labelSettings" Content="Settings" Grid.Column="1" HorizontalAlignment="Left" Margin="20,9,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.909,-2.105" Height="37" Width="135" FontSize="22" FontFamily="Segoe UI Semibold"/>
-        <Label x:Name="_labelSettingsInstalled" Content="Settings installed" Grid.Column="1" HorizontalAlignment="Left" Margin="20,41,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.364,-0.263" Width="230"/>
+
+        <!-- Update available button-->
+        <Button x:Name="_buttonUpdateAvailable" Content="Settings Update available" Grid.Column="1" HorizontalAlignment="Left" Margin="20,9,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="1.4,-0.344" BorderThickness="0" Click="_buttonUpdateAvailable_Click" FontWeight="Bold" FontSize="14" Background="#FF0076D2" Foreground="Snow" Visibility="Hidden" />
     </Grid>
 </Window>
