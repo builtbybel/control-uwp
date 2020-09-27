@@ -33,7 +33,7 @@ alt="GitHub issues">
 
 ![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp.png)
 
-## What is ControlUWP and why do I care?
+## What is ControlUWP?
 
 It’s not a secret that the Windows 10 Settings app is not everyone’s cup of tea. The modern version of the settings control is limited and missing a majority of options you can access in the classic control panel. The new settings app is a monster of a GUI with a lot of wasted space, cluttered and chaotic to the end and many functions are simply ugly integrated.
  
