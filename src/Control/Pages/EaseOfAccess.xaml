@@ -1,0 +1,61 @@
+﻿<Page x:Class="Control.Pages.EaseOfAccess"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Control.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EaseOfAccess">
+
+    <Grid>
+        
+        <!-- URI-->
+        <TextBlock TextAlignment="Left" Margin="10,0,10,15">
+           <Bold><Run Text="Narrator, magnifier, high contrast" /></Bold>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink NavigateUri="ms-settings:easeofaccess-audio" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Open Audio page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-closedcaptioning" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Closed captions" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-colorfilter" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Color Filters" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-display" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Display page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-eyecontrol" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Eye Control" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-highcontrast" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="High Contrast" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-keyboard" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Keyboard page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-magnifier" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Magnifier page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-cursorandpointersize" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Mouse pointer" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-mouse" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Mouse page" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:easeofaccess-narrator" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Narrator" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+           <Hyperlink NavigateUri="ms-settings:easeofaccess-speechrecognition" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Speech page" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+           <Hyperlink NavigateUri="ms-settings:easeofaccess-cursor" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Text cursor" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+            
+        </TextBlock>
+        
+    </Grid>
+</Page>

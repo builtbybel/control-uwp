@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PackageId>ControlUWP</PackageId>
+    <Company>Builtbybel</Company>
+    <Authors>Builtbybel</Authors>
+    <Product>ControlUWP</Product>
+    <AssemblyVersion>0.20.0.0</AssemblyVersion>
+    <FileVersion>0.20.0.0</FileVersion>
+    <AssemblyName>controluwp.launcher</AssemblyName>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+    <Copyright>(C) Builtbybel 2020</Copyright>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ModernWpfUI" Version="0.9.2" />
+  </ItemGroup>
+
+</Project>

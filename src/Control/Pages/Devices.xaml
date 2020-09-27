@@ -1,0 +1,47 @@
+﻿<Page x:Class="Control.Pages.Devices"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Devices">
+
+    <Grid>
+
+        <!-- URI-->
+        <TextBlock TextAlignment="Left" Margin="10,0,10,15">
+           <Bold><Run Text="Bluetooth, printers, mouse" /></Bold>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink NavigateUri="ms-settings:autoplay" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Open AutoPlay page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:bluetooth" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Bluetooth &amp; other devices page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:mousetouchpad" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Mouse page" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:pen" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Pen &amp; Windows Ink page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:mobile-devices" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Phone page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:printers" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure Printers &amp; scanners page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:devices-touchpad" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Tochpad page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:typing" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Typing page" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:usb" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Show USB devices" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+        </TextBlock>
+
+    </Grid>
+</Page>

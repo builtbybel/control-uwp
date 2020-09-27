@@ -1,0 +1,47 @@
+﻿<Page x:Class="Control.Pages.UpdateAndSecurity"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Control.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UpdateAndSecurity">
+
+    <Grid>
+        
+        <!-- URI-->
+        <TextBlock TextAlignment="Left" Margin="10,10,10,5">
+           <Bold><Run Text="Windows update, recovery, backup" /></Bold>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for Windows updates" /></Hyperlink><LineBreak /><Italic>(Recommended)</Italic>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:windowsupdate-options" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Advanced Update options" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:windowsupdate-optionalupdates" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="View optional updates" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:windowsupdate-history" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="View update history" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:windowsinsider" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Insider Program" /></Hyperlink><LineBreak /><Italic>(NOTE: Diagnostic Data must be set to Full to get preview builds from Windows-Insider-Program!)</Italic>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:backup" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Backup" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:delivery-optimization" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Delivery Optimization" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="windowsdefender:" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Security" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:troubleshoot" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Troubleshoot" /></Hyperlink>
+    
+        </TextBlock>
+        
+    </Grid>
+</Page>

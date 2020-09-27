@@ -1,0 +1,75 @@
+﻿<Page x:Class="Control.Pages.SystemPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Control.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="System">
+
+    <Grid>
+
+        <!-- URI-->
+        <TextBlock TextAlignment="Left" Margin="10,10,10,5">
+           <Bold><Run Text="Display, sound, notifications, power" /></Bold>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink NavigateUri="ms-settings:about" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My PC's specs" /></Hyperlink><LineBreak /><Italic>(Rename your PC, Join domain)</Italic>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:display-advanced" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Advanced scaling settings" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:batterysaver" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Battery" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:clipboard" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Clipboard" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings-connectabledevices:devicediscovery" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Connect to a wireless display" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:display" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Display settings" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:display-advancedgraphics" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Graphics settings" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:multitasking" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Multitasking" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:nightlight" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Night light settings" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+           <Hyperlink NavigateUri="ms-settings:notifications" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Notifications &amp; actions page" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:powersleep" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Power &amp; sleep " /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:project" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Projecting to this PC" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:remotedesktop" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Remote Desktop" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:crossdevice" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Shared experiences" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:sound" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Sound" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:storagepolicies" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Storage Sense (Configure)" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:storagesense" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Storage Sense" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:tabletmode" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Tablet" /></Hyperlink>
+            <LineBreak />
+           <LineBreak />
+        </TextBlock>
+        
+    </Grid>
+</Page>

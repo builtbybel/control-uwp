@@ -1,0 +1,125 @@
+﻿<Window x:Class="Control.MainWindow" ui:TitleBar.Background="{DynamicResource AppBackgroundBrushDark}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ui="http://schemas.modernwpf.com/2019"
+        mc:Ignorable="d"
+        Background="{DynamicResource SystemControlPageBackgroundAltHighBrush}"
+        Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}"
+        ui:TitleBar.ExtendViewIntoTitleBar="true"
+        ui:WindowHelper.UseModernWindowStyle="True"
+         ui:TitleBar.IsBackButtonVisible="True" 
+        Title="ControlUWP" Height="865" Width="1034" MinWidth="320" MinHeight="350">
+        <Window.Resources>
+            <SolidColorBrush x:Key="WindowBorder" Color="{DynamicResource SystemAccentColor}" />
+        </Window.Resources>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ui:NavigationView Header="{Binding Path=Content.PageTitle, ElementName=frame}" PaneTitle="ControlUWP" AlwaysShowHeader="True" x:Name="navigationView" Grid.Row="0" Grid.ColumnSpan="2" OpenPaneLength="320" CompactModeThresholdWidth="0" IsBackButtonVisible="Collapsed" SelectionChanged="NavigationView_SelectionChanged" Grid.RowSpan="2">
+
+            <!-- Glyph list: https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font -->
+            <ui:NavigationView.MenuItems>
+                <ui:NavigationViewItem IsSelected="True" Icon="Home" Content="Home" Tag="Home"/>
+
+                <ui:NavigationViewItem Content="Apps" Tag="Apps">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE71D;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Debloat" Tag="Debloat">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE74D;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Devices" Tag="Devices">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE772;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Ease of Access" Tag="Ease of Access">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE776;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Edge" Tag="Edge">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE704;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Gaming" Tag="Gaming">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE7FC;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Network &amp; Internet" Tag="Network &amp; Internet">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE968;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Package Management" Tag="Package Management">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE7B8;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Personalization" Tag="Personalization">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE771;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Privacy" Tag="Privacy">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE730;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Search" Tag="Search">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xEDE4;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="System" Tag="System">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE770;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Time &amp; Language" Tag="Time &amp; Language">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE775;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Tweaks" Tag="Tweaks">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE734;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+
+                <ui:NavigationViewItem Content="Update &amp; Security" Tag="Update &amp; Security">
+                    <ui:NavigationViewItem.Icon>
+                        <ui:FontIcon Glyph="&#xE777;" />
+                    </ui:NavigationViewItem.Icon>
+                </ui:NavigationViewItem>
+            </ui:NavigationView.MenuItems>
+            <ui:Frame x:Name="frame" ScrollViewer.VerticalScrollBarVisibility="Auto"></ui:Frame>
+        </ui:NavigationView>
+    </Grid>
+</Window>

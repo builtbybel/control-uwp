@@ -1,0 +1,31 @@
+﻿<Page x:Class="Control.Pages.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      xmlns:local="clr-namespace:Control.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Home">
+
+    <Grid>
+        <!-- Welcome -->
+        <Label x:Name="_labelWelcome" Content="&#xE77B;" FontFamily="Segoe MDL2 Assets" FontSize="48" HorizontalAlignment="Left" Margin="23,15,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.333,2.105" Height="61" Width="137" />
+        <Label x:Name="_labelWelcomeUsername" Content="builtbybel" Margin="22,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" RenderTransformOrigin="0.548,1.429" Height="33" />
+
+
+        <!-- Quick links -->
+        <TextBlock TextAlignment="Left" Margin="23,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+
+         <Hyperlink NavigateUri="ms-settings:yourinfo" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My Account" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Updates" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="windowsdefender:" TextDecorations=""  RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Security Center" /></Hyperlink>
+        </TextBlock>
+
+    </Grid>
+</Page>

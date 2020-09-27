@@ -1,0 +1,28 @@
+﻿<Page x:Class="Control.Pages.TimeAndLanguage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Control.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TimeAndLanguage">
+
+    <Grid>
+
+        <!-- URI-->
+        <TextBlock TextAlignment="Left" Margin="10,0,10,15">
+           <Bold><Run Text="Speech, region, date" /></Bold>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink NavigateUri="ms-settings:regionlanguage-adddisplaylanguage" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Add Display language" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:dateandtime" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Date &amp; time " /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:speech" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Speech" /></Hyperlink>
+        </TextBlock>
+        
+    </Grid>
+</Page>
