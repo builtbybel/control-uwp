@@ -15,7 +15,7 @@
 
         <ui:DropDownButton
             HorizontalAlignment="Center"
-            Content="Click here for more infos about the project" Height="35" Width="370" Margin="0,145,0,0" VerticalAlignment="Top">
+            Content="Click here for additional information about the project" Height="35" Width="370" Margin="0,145,0,0" VerticalAlignment="Top">
             <ui:DropDownButton.Flyout>
                 <ui:Flyout Placement="Bottom">
                     <TextBlock
