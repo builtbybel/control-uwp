@@ -29,7 +29,7 @@ alt="GitHub issues">
 <p align="center">
   <a href="#what-is-controluwp-and-why-do-i-care">About this project</a> •
   <a href="#download">Download the app</a> •
-  <a href="#conrribute">Contribute</a>
+  <a href="#contribute">Contribute</a>
 </p>
 
 ![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp.png)
