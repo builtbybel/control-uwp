@@ -9,5 +9,15 @@
       Title="PackageManagement">
 
     <Grid>
+
+        <!-- URI-->
+        <TextBlock TextAlignment="Left" Margin="10,0,10,15">
+           <Run Text="Installation, apps, ISOs" FontSize="18"/>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink NavigateUri="https://winstall.app/" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Install apps with Windows Package Manager" /></Hyperlink>
+  
+        </TextBlock>
+        
     </Grid>
 </Page>

@@ -12,7 +12,7 @@
 
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15">
-           <Bold><Run Text="Find my files, permissions" /></Bold>
+           <Run Text="Find my files, permissions" FontSize="18"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:search-permissions" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Permissions &amp; history page" /></Hyperlink>

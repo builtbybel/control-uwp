@@ -12,7 +12,7 @@
         
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,10,10,5">
-           <Bold><Run Text="Windows update, recovery, backup" /></Bold>
+          <Run Text="Windows update, recovery, backup" FontSize="18"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for Windows updates" /></Hyperlink><LineBreak /><Italic>(Recommended)</Italic>

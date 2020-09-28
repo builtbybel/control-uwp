@@ -67,7 +67,7 @@
 
                 <ui:NavigationViewItem Content="Network &amp; Internet" Tag="Network &amp; Internet">
                     <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon Glyph="&#xE968;" />
+                        <ui:FontIcon Glyph="&#xE774;" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
@@ -85,13 +85,13 @@
 
                 <ui:NavigationViewItem Content="Privacy" Tag="Privacy">
                     <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon Glyph="&#xE730;" />
+                        <ui:FontIcon Glyph="&#xE72E;" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
                 <ui:NavigationViewItem Content="Search" Tag="Search">
                     <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon Glyph="&#xEDE4;" />
+                        <ui:FontIcon Glyph="&#xE721;" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
@@ -115,11 +115,13 @@
 
                 <ui:NavigationViewItem Content="Update &amp; Security" Tag="Update &amp; Security">
                     <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon Glyph="&#xE777;" />
+                        <ui:FontIcon Glyph="&#xE895;" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
             </ui:NavigationView.MenuItems>
-            <ui:Frame x:Name="frame" ScrollViewer.VerticalScrollBarVisibility="Auto"></ui:Frame>
+            <ScrollViewer Grid.Row="1" >
+                <ui:Frame x:Name="frame" ScrollViewer.VerticalScrollBarVisibility="Auto"  ScrollViewer.CanContentScroll="True"  NavigationUIVisibility="Hidden" > </ui:Frame>
+            </ScrollViewer>
         </ui:NavigationView>
     </Grid>
 </Window>

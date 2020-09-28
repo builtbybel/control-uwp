@@ -59,7 +59,8 @@ namespace Control.Pages
 
             if (equals == 0)
             {
-                buttonUpdateAvailable.Visibility = Visibility.Hidden; // Up-to-date
+                buttonUpdateAvailable.Visibility = Visibility.Visible; // Up-to-date
+                buttonUpdateAvailable.Content = "You are up-to-date";
             }
             else if (equals < 0)
             {
@@ -68,6 +69,7 @@ namespace Control.Pages
             else    // New release available!
             {
                 buttonUpdateAvailable.Visibility = Visibility.Visible;
+                buttonUpdateAvailable.Content = "Settings update available";
             }
         }
 

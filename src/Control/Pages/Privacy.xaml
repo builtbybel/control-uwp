@@ -10,8 +10,8 @@
 
     <Grid HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="8*" />
-            <RowDefinition />
+            <RowDefinition Height="4*" />
+            <RowDefinition Height="41*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -19,11 +19,15 @@
             <ColumnDefinition Width="195" />
         </Grid.ColumnDefinitions>
 
+        <TextBlock TextAlignment="Left" Margin="10,0,10,15">
+           <Run Text="Optimize privacy settings" FontSize="18"/>
+        </TextBlock>
+
         <!-- PS list-->
-        <ListBox x:Name="listPS" Margin="0,2,5,45"  IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" SelectionChanged="listPS_SelectionChanged" SelectionMode="Extended" Background="{x:Null}" Grid.RowSpan="2" />
+        <ListBox x:Name="listPS" Margin="0,37,5,4" IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" SelectionChanged="listPS_SelectionChanged" SelectionMode="Extended" Background="{x:Null}" Grid.Row="1" />
 
         <!-- Description -->
-        <RichTextBox x:Name="textDescription" Grid.Column="1" Margin="0,2,10,45" IsReadOnly="True" IsDocumentEnabled="True" Block.LineHeight="2" BorderThickness="0" HorizontalScrollBarVisibility="Disabled" Grid.RowSpan="2">
+        <RichTextBox x:Name="textDescription" Grid.Column="1" Margin="0,37,10,0" IsReadOnly="True" IsDocumentEnabled="True" Block.LineHeight="2" BorderThickness="0" HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
             <FlowDocument>
                 <Paragraph>
                     <Run Text="" />
@@ -32,7 +36,7 @@
         </RichTextBox>
 
         <!-- Quick links -->
-        <TextBlock TextAlignment="Left" Grid.Column="2" Margin="10,0,10,45" Grid.RowSpan="2">
+        <TextBlock TextAlignment="Left" Grid.Column="2" Margin="10,37,10,4" Grid.Row="1">
            <Bold><Run Text="Quick links" /></Bold>
             <LineBreak />
             <LineBreak />
@@ -45,8 +49,11 @@
           <Hyperlink NavigateUri="ms-settings:privacy-feedback-telemetryviewergroup" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="View Diagnostic Data" /></Hyperlink>
         </TextBlock>
 
+        <!-- Apply button -->
+        <Button x:Name="buttonApply" Content="Apply selected settings" Click="buttonApply_Click" Margin="10,0,0,0" VerticalAlignment="Top" Padding="8,5,8,6" Height="32" Width="220" Grid.Row="1"/>
+
         <!-- Main menu -->
-        <Menu x:Name="menu" Height="45" Margin="10,0,5,0" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="2">
+        <Menu x:Name="menu" Height="41" Margin="5,0,10,0" VerticalAlignment="Top" Grid.Column="2">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -59,10 +66,10 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
 
-            <!-- Action buttons 1.Edit / 2.More -->
-            <MenuItem Header="&#xE792;" Grid.Column="3" HorizontalAlignment="Right" Click="buttonEdit_Click" FontSize="18" Margin="0,0,79,1" RenderTransformOrigin="4.523,0.625" ToolTip="Edit" FontFamily="Segoe MDL2 Assets"/>
+            <!-- Action buttons 1.Edit / 2. Overflow menu -->
+            <MenuItem Header="&#xE792;" Grid.Column="3" HorizontalAlignment="Right" Click="buttonEdit_Click" FontSize="18" Margin="0,0,79,0" RenderTransformOrigin="4.523,0.625" ToolTip="Edit" FontFamily="Segoe MDL2 Assets" VerticalContentAlignment="Center"/>
 
-            <MenuItem Header="&#xE712;" Grid.Column="3" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0">
+            <MenuItem Header="&#xE712;" Grid.Column="3" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0" VerticalContentAlignment="Center">
                 <MenuItem Header="Refresh" FontFamily="Segoe UI" x:Name="Refresh" Click="menuRefresh_Click" FontSize="18" />
                 <Separator />
                 <MenuItem Header="Select all" FontFamily="Segoe UI" x:Name="SelectAll" Click="menuSelectAll_Click" FontSize="18" />
@@ -70,8 +77,6 @@
             </MenuItem>
         </Menu>
 
-        <!-- Apply button -->
-        <Button x:Name="buttonApply" Content="Apply selected settings" Click="buttonApply_Click" Margin="10,0,0,8" Grid.Row="1" VerticalAlignment="Bottom" Padding="8,5,8,6"/>
 
     </Grid>
 </Page>

@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Diagnostics;
+using System.Windows.Controls;
 
 namespace Control.Pages
 {
@@ -12,6 +13,12 @@ namespace Control.Pages
             InitializeComponent();
         }
 
-        public string PageTitle => "Package Management";
+        public string PageTitle => "Package Management (under development)";
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
+            e.Handled = true;
+        }
     }
 }

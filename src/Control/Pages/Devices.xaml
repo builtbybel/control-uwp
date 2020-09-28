@@ -11,7 +11,7 @@
 
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15">
-           <Bold><Run Text="Bluetooth, printers, mouse" /></Bold>
+           <Run Text="Bluetooth, printers, mouse" FontSize="18"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:autoplay" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Open AutoPlay page" /></Hyperlink>

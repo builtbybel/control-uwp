@@ -12,7 +12,7 @@
 
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,10,10,5">
-           <Bold><Run Text="Display, sound, notifications, power" /></Bold>
+           <Run Text="Display, sound, notifications, power" FontSize="18"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:about" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My PC's specs" /></Hyperlink><LineBreak /><Italic>(Rename your PC, Join domain)</Italic>

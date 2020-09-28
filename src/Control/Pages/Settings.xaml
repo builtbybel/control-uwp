@@ -25,7 +25,7 @@
                         FontFamily="Courier New"
                         FontSize="12"
                         FontWeight="Light"
-                        TextAlignment="Left"><Run Text="ControlUWP, the alternative Control Panel for Windows 10" /><LineBreak /><Run Text="Copyright (C) 2020 Builtbybel" /><LineBreak /><LineBreak /><Run Text="Folow the project on GitHub" /><LineBreak /><Underline><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="https://github.com/builtbybel/control-uwp" /></Hyperlink></Underline><LineBreak /><Run Text="You can also follow me on Twitter" /><LineBreak /><Underline><Hyperlink NavigateUri="https://www.twitter.com/builtbybel" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="https://www.twitter.com/builtbybel" /></Hyperlink></Underline></TextBlock>
+                        TextAlignment="Left"><Run Text="ControlUWP, the alternative Control Panel for Windows 10" /><LineBreak /><Run Text="Copyright (C) 2020 Builtbybel" /><LineBreak /><LineBreak /><Run Text="Contribute to the project on GitHub" /><LineBreak /><Underline><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="https://github.com/builtbybel/control-uwp" /></Hyperlink></Underline><LineBreak /><Run Text="You can also follow me on Twitter" /><LineBreak /><Underline><Hyperlink NavigateUri="https://www.twitter.com/builtbybel" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="https://www.twitter.com/builtbybel" /></Hyperlink></Underline></TextBlock>
                 </ui:Flyout>
             </ui:DropDownButton.Flyout>
         </ui:DropDownButton>

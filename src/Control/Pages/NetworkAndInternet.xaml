@@ -12,7 +12,7 @@
 
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15">
-           <Bold><Run Text="Wi-Fi, airplane mode, VPN" /></Bold>
+           <Run Text="Wi-Fi, airplane mode, VPN" FontSize="18"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:datausage" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Show Data usage" /></Hyperlink>

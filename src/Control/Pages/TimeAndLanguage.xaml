@@ -12,7 +12,7 @@
 
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15">
-           <Bold><Run Text="Speech, region, date" /></Bold>
+           <Run Text="Speech, region, date" FontSize="18"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:regionlanguage-adddisplaylanguage" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Add Display language" /></Hyperlink>

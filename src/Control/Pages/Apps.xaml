@@ -12,13 +12,13 @@
 
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15">
-           <Bold><Run Text="Uninstall, defaults, optional features" /></Bold>
+           <Run Text="Uninstall, defaults, optional features" FontSize="18"/>
             <LineBreak />
             <LineBreak />
-         <Hyperlink NavigateUri="ms-settings:privacy-location" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure app permissions" /></Hyperlink><LineBreak /><Italic>(Configure access to position, camera, notifications etc.)</Italic>
+         <Hyperlink NavigateUri="ms-settings:privacy-location" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure app permissions" /></Hyperlink><LineBreak /><Italic>Configure access to position, camera, notifications etc.</Italic>
             <LineBreak />
             <LineBreak />
-          <Hyperlink NavigateUri="ms-settings:appsfeatures" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Uninstall apps" /></Hyperlink>
+          <Hyperlink NavigateUri="ms-settings:appsfeatures" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Uninstall apps" /></Hyperlink> <LineBreak /><Italic>To uninstall pre-installed Windows 10 apps, you can use the Debloat section</Italic>
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-windows-store://downloadsandupdates" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for app updates" /></Hyperlink> <LineBreak /><Italic>(Microsoft Store)</Italic>

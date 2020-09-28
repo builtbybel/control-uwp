@@ -12,7 +12,7 @@
 
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15">
-           <Bold><Run Text="Background, lockscreen, colors" /></Bold>
+           <Run Text="Background, lockscreen, colors" FontSize="18"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:personalization-background" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Change Background" /></Hyperlink>

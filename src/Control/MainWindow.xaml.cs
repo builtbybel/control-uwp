@@ -1,9 +1,7 @@
-﻿using ModernWpf;
-using ModernWpf.Controls;
+﻿using ModernWpf.Controls;
 using ModernWpf.Media.Animation;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Windows;
 
 namespace Control
@@ -31,8 +29,6 @@ namespace Control
             { "Time & Language", typeof(Pages.TimeAndLanguage) },
             { "Tweaks", typeof(Pages.Tweaks) },
             { "Update & Security", typeof(Pages.UpdateAndSecurity) }
-
-
         };
 
         public MainWindow()
@@ -52,11 +48,10 @@ namespace Control
                 if (selectedItem != null)
                 {
                     var pageType = Pages[(string)selectedItem.Tag];
+                    // https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.animation.drillinnavigationtransitioninfo?view=winrt-19041
                     frame.Navigate(pageType, null, new DrillInNavigationTransitionInfo());
                 }
             }
         }
-
- 
     }
 }
