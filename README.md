@@ -29,6 +29,7 @@ alt="GitHub issues">
 <p align="center">
   <a href="#what-is-controluwp-and-why-do-i-care">About this project</a> •
   <a href="#download">Download the app</a>
+  <a href="#conrribute">Contribute</a>
 </p>
 
 ![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp.png)
@@ -42,6 +43,16 @@ ControlUWP app doesn't replace (currently) the native Windows 10 settings panel 
 ## Download
 
 - (Latest release) [Download](https://github.com/builtbybel/control-uwp/releases)
+
+## Contribute
+
+### How to contribute?
+
+ControlUWP is free and open source, if you like my work, please consider:
+- Star this project on GitHub
+- Support me via a [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=donate@builtbybel.com&lc=US&item_name=%20Builtbybel&no_note=0&cn=&currency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted)
+- Create a [pull request](https://github.com/builtbybel/control-uwp/pulls) to help me fixing bugs and implementing new features
+- Report issues and bugs [here](https://github.com/builtbybel/control-uwp/issues)
 
 ## Credits
 
