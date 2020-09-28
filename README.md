@@ -58,8 +58,8 @@ ControlUWP is free and open source, if you like my work, please consider:
 ## Credits
 
 This software uses the following packages:
-- [ModernWpf](https://github.com/Kinnara/ModernWpf)
-- [Debloating page based upon](https://github.com/mgw-dev/Win10AppTool)
+- WinUI Framework [ModernWpf](https://github.com/Kinnara/ModernWpf)
+- Debloating page based upon [Win10AppTool](https://github.com/mgw-dev/Win10AppTool)
 
 
 ---
