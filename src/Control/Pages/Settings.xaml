@@ -9,10 +9,14 @@
       Title="Settings">
 
     <Grid>
-        <TextBlock TextAlignment="Center"><Bold><Run Text="ControlUWP (Alpha)"  FontSize="20" /></Bold> <Run Text="{Binding AssemblyVersion, Mode=OneWay, StringFormat='\{0\}'}" /><LineBreak /><LineBreak /><Run Text="Builtbybel" /><LineBreak /><Run Text="An enthusiast take on what the Windows 10 Settings app should be and where everything is in place." /><LineBreak /><LineBreak /><Run Text="GitHub " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Link" /></Hyperlink><LineBreak /><Run Text="License " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp/blob/master/LICENSE" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="MIT" /></Hyperlink></TextBlock>
-
+        
+        <!-- App info-->
+        <TextBlock TextAlignment="Center"><Bold><Run Text="ControlUWP (Preview)"  FontSize="20" /></Bold> <Run Text="{Binding AssemblyVersion, Mode=OneWay, StringFormat='\{0\}'}" /><LineBreak /><LineBreak /><Run Text="Builtbybel" /><LineBreak /><Run Text="An enthusiast take on what the Windows 10 Settings app should be and where everything is in place." /><LineBreak /><LineBreak /><Run Text="GitHub " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Link" /></Hyperlink><LineBreak /><Run Text="License " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp/blob/master/LICENSE" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="MIT" /></Hyperlink></TextBlock>
+        
+        <!-- Update button-->
         <Button x:Name="buttonUpdateAvailable" Content="Settings Update available" Margin="0,185,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="1.4,-0.344" BorderThickness="0" Click="buttonUpdateAvailable_Click" FontWeight="Bold" FontSize="14" Background="#FF0076D2" Foreground="Snow" HorizontalAlignment="Center" Visibility="Hidden" />
 
+        <!-- DropDown button -->
         <ui:DropDownButton
             HorizontalAlignment="Center"
             Content="Click here for additional information about the project" Height="35" Width="370" Margin="0,145,0,0" VerticalAlignment="Top">

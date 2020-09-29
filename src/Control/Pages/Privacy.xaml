@@ -36,11 +36,14 @@
         </RichTextBox>
 
         <!-- Quick links -->
-        <TextBlock TextAlignment="Left" Grid.Column="2" Margin="10,37,10,4" Grid.Row="1">
+        <TextBlock TextAlignment="Left" Grid.Column="2" Margin="10,37,10,4" Grid.Row="1" TextWrapping="WrapWithOverflow" FontSize="15">
            <Bold><Run Text="Quick links" /></Bold>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:privacy" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure privacy" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+            <Hyperlink NavigateUri="https://github.com/builtbybel/privatezilla" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check privacy with Privatezilla" ToolTip="Recommended third-party app whichs allows you to perform a privacy &amp; security check of Windows 10"/></Hyperlink>
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:privacy-activityhistory" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Activity history" /></Hyperlink>

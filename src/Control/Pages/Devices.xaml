@@ -10,7 +10,7 @@
     <Grid>
 
         <!-- URI-->
-        <TextBlock TextAlignment="Left" Margin="10,0,10,15">
+        <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
            <Run Text="Bluetooth, printers, mouse" FontSize="18"/>
             <LineBreak />
             <LineBreak />
@@ -29,7 +29,7 @@
           <Hyperlink NavigateUri="ms-settings:mobile-devices" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Phone page" /></Hyperlink>
             <LineBreak />
             <LineBreak />
-          <Hyperlink NavigateUri="ms-settings:printers" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure Printers &amp; scanners page" /></Hyperlink>
+          <Hyperlink NavigateUri="ms-settings:printers" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure Printers &amp; scanners" /></Hyperlink>
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:devices-touchpad" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Tochpad page" /></Hyperlink>

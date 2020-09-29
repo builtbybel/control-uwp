@@ -12,11 +12,10 @@
     <Grid>
         <!-- Welcome -->
         <Label x:Name="_labelWelcome" Content="&#xE77B;" FontFamily="Segoe MDL2 Assets" FontSize="48" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.333,2.105" Height="61" Width="137" />
-        <Label x:Name="_labelWelcomeUsername" Content="builtbybel" Margin="22,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" RenderTransformOrigin="0.548,1.429" Height="33" />
-
+        <Label x:Name="labelWelcomeUsername" Content="builtbybel" Margin="22,67,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" RenderTransformOrigin="0.548,1.429" Height="33" />
 
         <!-- Quick links -->
-        <TextBlock TextAlignment="Left" Margin="23,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <TextBlock TextAlignment="Left" Margin="23,115,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="15">
 
          <Hyperlink NavigateUri="ms-settings:yourinfo" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My Account" /></Hyperlink>
             <LineBreak />

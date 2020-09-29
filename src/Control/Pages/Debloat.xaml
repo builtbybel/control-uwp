@@ -16,10 +16,10 @@
 
         <TextBlock TextAlignment="Left" Margin="10,0,10,15">
            <Run Text="Remove pre-installed apps" FontSize="18"/>
-            <LineBreak></LineBreak> <Hyperlink NavigateUri="https://docs.microsoft.com/windows/application-management/apps-in-windows-10" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Understand the different apps included in Windows 10" /></Hyperlink>
         </TextBlock>
 
-        <ItemsControl ItemsSource = "{Binding Path = apps}" Width="330" HorizontalAlignment="Left" Margin="10,98,0,0">
+        <!-- Apps list -->
+        <ItemsControl ItemsSource = "{Binding Path = apps}" Width="330" HorizontalAlignment="Left" Margin="10,95,0,0">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,0,0,8">
@@ -30,7 +30,6 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
 
         <!-- Main menu -->
         <Menu x:Name="menu" Height="41" Margin="5,0,10,0" VerticalAlignment="Top" Grid.Column="2">
@@ -55,13 +54,22 @@
             </MenuItem>
         </Menu>
 
-        <!-- Action buttons -->
-        <Button x:Name="buttonRemove" Content="Remove selected apps" Height="32" Margin="10,55,0,0" VerticalAlignment="Top" Width="220" ToolTipService.ShowOnDisabled="True" Click="buttonRemove_Click" />
+        <!-- Quick links -->
+        <TextBlock TextAlignment="Left" Grid.Column="1" Margin="160,46,45,10" TextWrapping="WrapWithOverflow" FontSize="15">
+           <Bold><Run Text="Quick links" /></Bold>
+            <LineBreak />
+            <LineBreak />
+           <Bold><Run x:Name="textInstalledApps" FontWeight="Medium" /></Bold>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink NavigateUri="https://docs.microsoft.com/windows/application-management/apps-in-windows-10" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Understand the different apps included in Windows 10"  /></Hyperlink>
+        </TextBlock>
 
-        <TextBlock x:Name="textInstalledApps" FontWeight="Medium" Margin="12,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" />
-        <CheckBox x:Name="checkExcludeStore" Content="Exclude Microsoft Store" Margin="12,88,0,0" VerticalAlignment="Top" Grid.Column="1" IsChecked="true" ToolTip="Hide Microsoft Store from list" />
-        <CheckBox x:Name="checkAllUsers" Content="All Users" Margin="12,118,0,0" VerticalAlignment="Top" Grid.Column="1" ToolTipService.ShowOnDisabled="True" ToolTip="Remove apps for all users" />
-        <CheckBox x:Name="checkOnline" Content="Include Provisioned apps" Margin="12,148,0,0" VerticalAlignment="Top" Grid.Column="1" ToolTipService.ShowOnDisabled="True" ToolTip="Provisoned apps are applications that Windows will attempt to reinstall during updates, or when a new user account is made. If you remove these you will have to install them manually through the Store app when making new accounts." />
+        <!-- Action buttons -->
+        <Button x:Name="buttonRemove" Content="Remove selected apps" Height="32" Margin="10,43,0,0" VerticalAlignment="Top" Width="220" ToolTipService.ShowOnDisabled="True" Click="buttonRemove_Click" />
+        <CheckBox x:Name="checkExcludeStore" Content="Exclude Microsoft Store" Margin="160,211,0,0" VerticalAlignment="Top" Grid.Column="1" IsChecked="true" ToolTip="Hide Microsoft Store from list" />
+        <CheckBox x:Name="checkAllUsers" Content="All Users" Margin="160,241,0,0" VerticalAlignment="Top" Grid.Column="1" ToolTipService.ShowOnDisabled="True" ToolTip="Remove apps for all users" />
+        <CheckBox x:Name="checkOnline" Content="Include Provisioned apps" Margin="160,271,0,0" VerticalAlignment="Top" Grid.Column="1" ToolTipService.ShowOnDisabled="True" ToolTip="Provisoned apps are applications that Windows will attempt to reinstall during updates, or when a new user account is made. If you remove these you will have to install them manually through the Store app when making new accounts." />
 
     </Grid>
 </Page>

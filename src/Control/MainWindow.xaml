@@ -9,11 +9,11 @@
         Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}"
         ui:TitleBar.ExtendViewIntoTitleBar="true"
         ui:WindowHelper.UseModernWindowStyle="True"
-         ui:TitleBar.IsBackButtonVisible="True" 
+        ui:TitleBar.IsBackButtonVisible="True" 
         Title="ControlUWP" Height="865" Width="1034" MinWidth="320" MinHeight="350">
-        <Window.Resources>
-            <SolidColorBrush x:Key="WindowBorder" Color="{DynamicResource SystemAccentColor}" />
-        </Window.Resources>
+    <Window.Resources>
+        <SolidColorBrush x:Key="WindowBorder" Color="{DynamicResource SystemAccentColor}" />
+    </Window.Resources>
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -23,7 +23,14 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ui:NavigationView Header="{Binding Path=Content.PageTitle, ElementName=frame}" PaneTitle="ControlUWP" AlwaysShowHeader="True" x:Name="navigationView" Grid.Row="0" Grid.ColumnSpan="2" OpenPaneLength="320" CompactModeThresholdWidth="0" IsBackButtonVisible="Collapsed" SelectionChanged="NavigationView_SelectionChanged" Grid.RowSpan="2">
+        <ui:NavigationView Header="{Binding Path=Content.PageTitle, ElementName=frame}" 
+                           PaneTitle="ControlUWP" Grid.RowSpan="2" Grid.Row="0" Grid.ColumnSpan="2" 
+                           AlwaysShowHeader="True" 
+                           x:Name="navigationView"        
+                           OpenPaneLength="320" 
+                           CompactModeThresholdWidth="0" 
+                           IsBackButtonVisible="Collapsed" 
+                           SelectionChanged="NavigationView_SelectionChanged" >
 
             <!-- Glyph list: https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font -->
             <ui:NavigationView.MenuItems>

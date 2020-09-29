@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
@@ -12,6 +13,8 @@ namespace Control.Pages
         public Home()
         {
             InitializeComponent();
+
+            labelWelcomeUsername.Content = Environment.UserName;
         }
 
         public string PageTitle => "Welcome";

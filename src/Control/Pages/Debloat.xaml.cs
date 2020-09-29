@@ -1,6 +1,7 @@
 ﻿using ModernWpf.Controls;
 using System.Diagnostics;
 using System.Windows;
+using System.Threading.Tasks;
 
 namespace Control.Pages
 {
@@ -62,6 +63,7 @@ namespace Control.Pages
             }
         }
 
+
         private async void buttonRemove_Click(object sender, RoutedEventArgs e)
         {
             ContentDialog cd = new ContentDialog
@@ -74,8 +76,15 @@ namespace Control.Pages
             ContentDialogResult result = await cd.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
-                RemoveUWP.RemoveAppx(appxViewModel.apps);
+                // Add some blur effect
+                System.Windows.Media.Effects.BlurEffect myBlur = new System.Windows.Media.Effects.BlurEffect();           
+                myBlur.Radius = 5;
+                this.Effect = myBlur;
+
+                await Task.Run(() => { RemoveUWP.RemoveAppx(appxViewModel.apps); });
                 LoadApps();
+
+                this.Effect = null;
             }
         }
     }
