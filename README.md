@@ -30,7 +30,7 @@ alt="GitHub issues">
   <a href="#what-is-controluwp">About this project</a> •
   <a href="#download">Download</a> •
   <a href="#contribute">Contribute</a> •
-  <a href="#credits">Credits</a> •
+  <a href="#credits">Credits</a>
 </p>
 
 ![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp.png)
