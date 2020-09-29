@@ -34,6 +34,8 @@ alt="GitHub issues">
 </p>
 
 ![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp.png)
+![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp2.png)
+![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp3.png)
 
 ## What is ControlUWP?
 
