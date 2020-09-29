@@ -50,6 +50,8 @@ ControlUWP app doesn't replace (currently) the native Windows 10 settings panel 
 #### ControlUWP is fully portable but requires [.NET Core Runtime 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) 
 Currently it is not shipped by default on Windows 10 and I dont want to publish it as self-contained (produces an application that includes the .NET Core runtime and libraries,  and all its dependencies), as this increases the size drastically. 
 
+After a few weeks of experimenting with concept, the first preview can now be tested. i
+
 ## Contribute
 
 ### How to contribute?
@@ -59,6 +61,8 @@ ControlUWP is free and open source, if you like my work, please consider:
 - Support me via a [donation](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=donate@builtbybel.com&lc=US&item_name=%20Builtbybel&no_note=0&cn=&currency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted)
 - Create a [pull request](https://github.com/builtbybel/control-uwp/pulls) to help me fixing bugs and implementing new features
 - Report issues and bugs [here](https://github.com/builtbybel/control-uwp/issues)
+
+After a few weeks of experimentation work (sense and nonsense of such an application) around the app and concept, I decided to continue this project. The first preview can now be tested. Everyone is also welcome to help and to donate a page of convenient settings.
 
 ## Credits
 
