@@ -38,11 +38,13 @@ alt="GitHub issues">
 
 ## What is ControlUWP?
 
-It’s not a secret that the Windows 10 Settings app is not everyone’s cup of tea. The modern version of the settings control is limited and missing a majority of options you can access in the classic control panel. The new settings app is a monster of a GUI with a lot of wasted space, cluttered and chaotic to the end and many functions are simply ugly integrated.
+It’s not a secret that the Windows 10 Settings app is not everyone’s cup of tea. The modern version of the settings control is limited and missing a majority of options you can access in the classic control panel. The new settings app isgigantic, a monster of a GUI with a lot of wasted space, hard to navigate and scattered and unintuitive to the end and many functions are simply ugly integrated.
  
 ControlUWP app doesn't replace (currently) the native Windows 10 settings panel but tries to bring at least a little order into it. It bundles the most important locations and recommended settings in one place and you can open and execute many of them in bulk. 
 
-After a few weeks of experimentation work (sense and nonsense of such an application) around the app and concept, I decided to continue this project. The first preview can now be tested. Everyone is also welcome to help and to donate a page of convenient settings.
+After a few weeks of experimentation work (sense and nonsense of such an application) around the app and concept, I decided to continue this project. 
+
+#### The first preview can now be tested. Everyone is also welcome to help and to donate a page of convenient settings.
 
 ## Download
 
