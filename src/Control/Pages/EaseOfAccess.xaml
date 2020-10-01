@@ -9,7 +9,6 @@
       Title="EaseOfAccess">
 
     <Grid>
-        
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
            <Run Text="Narrator, magnifier, high contrast" FontSize="18"/>
@@ -54,8 +53,6 @@
            <Hyperlink NavigateUri="ms-settings:easeofaccess-cursor" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Text cursor" /></Hyperlink>
             <LineBreak />
            <LineBreak />
-            
         </TextBlock>
-        
     </Grid>
 </Page>

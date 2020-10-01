@@ -9,7 +9,6 @@
       Title="Personalization">
 
     <Grid>
-
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
            <Run Text="Background, lockscreen, colors" FontSize="18"/>
@@ -32,6 +31,5 @@
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:themes" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Themes" /></Hyperlink>
         </TextBlock>
-        
     </Grid>
 </Page>

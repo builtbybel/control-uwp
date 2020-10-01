@@ -7,15 +7,13 @@
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UpdateAndSecurity">
-
     <Grid>
-        
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,10,10,5" FontSize="15">
           <Run Text="Windows update, recovery, backup" FontSize="18"/>
             <LineBreak />
             <LineBreak />
-         <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for Windows updates" /></Hyperlink><LineBreak /><Run Text="Recommended" FontWeight="Light"/>
+         <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for Windows updates" /></Hyperlink><LineBreak /><Run Text="Recommended" FontWeight="Thin"/>
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:windowsupdate-options" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Advanced Update options" /></Hyperlink>
@@ -27,7 +25,7 @@
           <Hyperlink NavigateUri="ms-settings:windowsupdate-history" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="View update history" /></Hyperlink>
             <LineBreak />
            <LineBreak />
-          <Hyperlink NavigateUri="ms-settings:windowsinsider" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Insider Program" /></Hyperlink><LineBreak /> <Run Text="NOTE: Diagnostic Data must be set to Full to get preview builds from Windows-Insider-Program!" FontWeight="Light"/>
+          <Hyperlink NavigateUri="ms-settings:windowsinsider" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Insider Program" /></Hyperlink><LineBreak /> <Run Text="NOTE: Diagnostic Data must be set to Full to get preview builds from Windows-Insider-Program!" FontWeight="Thin"/>
             <LineBreak />
            <LineBreak />
           <Hyperlink NavigateUri="ms-settings:backup" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Backup" /></Hyperlink>
@@ -40,8 +38,6 @@
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:troubleshoot" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Troubleshoot" /></Hyperlink>
-    
         </TextBlock>
-        
     </Grid>
 </Page>

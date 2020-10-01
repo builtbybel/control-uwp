@@ -9,7 +9,6 @@
       Title="Gaming">
 
     <Grid>
-        
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
            <Run Text="Gamebar, captures, broadcasting, Game Mode" FontSize="18"/>
@@ -23,6 +22,5 @@
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:gaming-gamebar" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Opens Xbox Game bar page" /></Hyperlink>
         </TextBlock>
-        
     </Grid>
 </Page>

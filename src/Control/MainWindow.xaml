@@ -11,9 +11,6 @@
         ui:WindowHelper.UseModernWindowStyle="True"
         ui:TitleBar.IsBackButtonVisible="True" 
         Title="ControlUWP" Height="865" Width="1034" MinWidth="320" MinHeight="350">
-    <Window.Resources>
-        <SolidColorBrush x:Key="WindowBorder" Color="{DynamicResource SystemAccentColor}" />
-    </Window.Resources>
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ModernWpf.Controls;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace Control.Pages
     /// <summary>
     /// Interaction logic for Privacy.xaml
     /// </summary>
-    public partial class Privacy : Page, INavPage
+    public partial class Privacy : System.Windows.Controls.Page, INavPage
     {
         public Privacy()
         {
@@ -32,7 +33,7 @@ namespace Control.Pages
             listPS.Items.Clear();
 
             // Clear description
-            textDescription.Document.Blocks.Clear();
+            textDescription.Text = "";
 
             string path = @"settings";
 
@@ -66,8 +67,8 @@ namespace Control.Pages
                         content.AppendLine(sr.ReadLine());
 
                     // Show description
-                    textDescription.Document.Blocks.Clear();
-                    textDescription.Selection.Text = string.Join(Environment.NewLine, File.ReadAllLines(psdir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\r\n")));
+                    textDescription.Text = "";
+                    textDescription.Text = string.Join(Environment.NewLine, File.ReadAllLines(psdir).Where(s => s.StartsWith("###")).Select(s => s.Substring(3).Replace("###", "\r\n")));
                 }
             }
             catch { } // Off
@@ -96,8 +97,8 @@ namespace Control.Pages
                 string psdir = @"settings\privacy\" + "\\" + item.ToString() + ".ps1";
                 var ps1File = psdir;
 
-                var equals = new[] { "Script", "All" };
-                var str = textDescription.Selection.Text;
+                var equals = new[] { "Script", "Group" };
+                var str = textDescription.Text;
 
                 // Create ConsoleWindow
                 if (equals.Any(str.Contains))
@@ -127,16 +128,27 @@ namespace Control.Pages
                 applied += "- " + item.ToString() + "\n";
             }
 
-            textDescription.Selection.Text = applied;    // Show applied settings
+            textDescription.Text = applied;    // Show applied settings
 
             // Remove cosmetics
             this.Effect = null;
             listPS.IsEnabled = true;
         }
 
-        private void buttonApply_Click(object sender, RoutedEventArgs e)
+        private async void buttonApply_Click(object sender, RoutedEventArgs e)
         {
-            ApplySettings();
+            ContentDialog cd = new ContentDialog
+            {
+                Title = "Info",
+                Content = "Are you sure you want to apply all selected settings?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No"
+            };
+            ContentDialogResult result = await cd.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                ApplySettings();
+            }
         }
 
         private void buttonEdit_Click(object sender, RoutedEventArgs e)

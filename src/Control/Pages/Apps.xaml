@@ -9,19 +9,18 @@
       Title="Apps">
 
     <Grid>
-
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
            <Run Text="Uninstall, defaults, optional features" FontSize="18"/>
             <LineBreak />
             <LineBreak />
-         <Hyperlink NavigateUri="ms-settings:privacy-location" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure app permissions" /></Hyperlink><LineBreak /> <Run Text="Configure access to position, camera, notifications etc." FontWeight="Light" />
+         <Hyperlink NavigateUri="ms-settings:privacy-location" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure app permissions" /></Hyperlink><LineBreak /> <Run Text="Configure access to position, camera, notifications etc." FontWeight="Thin" />
             <LineBreak />
             <LineBreak />
-          <Hyperlink NavigateUri="ms-settings:appsfeatures" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Uninstall apps" /></Hyperlink><LineBreak/> <Run Text="To uninstall pre-installed Windows 10 apps, you can use the Debloat section" FontWeight="Light" />
+          <Hyperlink NavigateUri="ms-settings:appsfeatures" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Uninstall apps" /></Hyperlink><LineBreak/> <Run Text="To uninstall pre-installed Windows 10 apps, you can use the Debloat section" FontWeight="Thin" />
             <LineBreak />
             <LineBreak />
-          <Hyperlink NavigateUri="ms-windows-store://downloadsandupdates" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for app updates" /></Hyperlink> <LineBreak /><Run Text="Microsoft Store" FontWeight="Light" />
+          <Hyperlink NavigateUri="ms-windows-store://downloadsandupdates" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for app updates" /></Hyperlink> <LineBreak /><Run Text="Microsoft Store" FontWeight="Thin" />
             <LineBreak />
            <LineBreak />
           <Hyperlink NavigateUri="ms-settings:defaultapps" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Change app defaults" /></Hyperlink>
@@ -29,6 +28,5 @@
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:startupapps" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure apps starting with Windows" /></Hyperlink>
         </TextBlock>
-        
     </Grid>
 </Page>

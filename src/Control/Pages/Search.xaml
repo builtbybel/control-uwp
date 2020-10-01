@@ -9,7 +9,6 @@
       Title="Search">
 
     <Grid>
-
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
            <Run Text="Find my files, permissions" FontSize="18"/>
@@ -20,6 +19,5 @@
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:cortana-windowssearch" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure Searching Windows" /></Hyperlink>
         </TextBlock>
-        
     </Grid>
 </Page>

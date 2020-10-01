@@ -9,7 +9,6 @@
       Title="NetworkAndInternet">
 
     <Grid>
-
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
            <Run Text="Wi-Fi, airplane mode, VPN" FontSize="18"/>
@@ -49,6 +48,5 @@
             <LineBreak />
            <LineBreak />
         </TextBlock>
-        
     </Grid>
 </Page>

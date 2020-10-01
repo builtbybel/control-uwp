@@ -7,10 +7,8 @@
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TimeAndLanguage">
-
     <Grid>
-
-        <!-- URI-->
+       <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
            <Run Text="Speech, region, date" FontSize="18"/>
             <LineBreak />
@@ -23,6 +21,5 @@
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:speech" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Speech" /></Hyperlink>
         </TextBlock>
-        
     </Grid>
 </Page>

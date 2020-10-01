@@ -3,11 +3,11 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
       xmlns:local="clr-namespace:Control.Pages"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Privacy">
-
     <Grid HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*" />
@@ -20,30 +20,34 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock TextAlignment="Left" Margin="10,0,10,15">
-           <Run Text="Optimize privacy settings" FontSize="18"/>
+           <Run Text="Optimize privacy settings" FontSize="18" />
         </TextBlock>
 
         <!-- PS list-->
-        <ListBox x:Name="listPS" Margin="0,37,5,4" IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" SelectionChanged="listPS_SelectionChanged" SelectionMode="Extended" Background="{x:Null}" Grid.Row="1" />
+        <ListBox x:Name="listPS" Margin="0,37,5,4" IsEnabled="True" Focusable="True" IsHitTestVisible="True" Padding="5" SelectionChanged="listPS_SelectionChanged" SelectionMode="Extended" Background="{x:Null}" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding}" TextWrapping="WrapWithOverflow" />
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
         <!-- Description -->
-        <RichTextBox x:Name="textDescription" Grid.Column="1" Margin="0,37,10,0" IsReadOnly="True" IsDocumentEnabled="True" Block.LineHeight="2" BorderThickness="0" HorizontalScrollBarVisibility="Disabled" Grid.Row="1">
-            <FlowDocument>
-                <Paragraph>
-                    <Run Text="" />
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
+        <TextBlock x:Name="textDescription" Grid.Column="1" Margin="10,37,10,0" Block.LineHeight="2" Grid.Row="1" TextWrapping="WrapWithOverflow">
+           <Run Text="" />
+        </TextBlock>
 
         <!-- Quick links -->
-        <TextBlock TextAlignment="Left" Grid.Column="2" Margin="10,37,10,4" Grid.Row="1" TextWrapping="WrapWithOverflow" FontSize="15">
+        <TextBlock TextAlignment="Left" Grid.Column="2" Margin="10,10,35,10" Grid.Row="1" TextWrapping="WrapWithOverflow" FontSize="15">
            <Bold><Run Text="Quick links" /></Bold>
             <LineBreak />
             <LineBreak />
          <Hyperlink NavigateUri="ms-settings:privacy" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Configure privacy" /></Hyperlink>
             <LineBreak />
             <LineBreak />
-            <Hyperlink NavigateUri="https://github.com/builtbybel/privatezilla" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check privacy with Privatezilla" ToolTip="Recommended third-party app whichs allows you to perform a privacy &amp; security check of Windows 10"/></Hyperlink>
+            <Hyperlink NavigateUri="https://github.com/builtbybel/privatezilla" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check privacy with Privatezilla" ToolTip="Recommended third-party app whichs allows you to perform a privacy &amp; security check of Windows 10" /></Hyperlink>
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:privacy-activityhistory" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Activity history" /></Hyperlink>
@@ -53,10 +57,10 @@
         </TextBlock>
 
         <!-- Apply button -->
-        <Button x:Name="buttonApply" Content="Apply selected settings" Click="buttonApply_Click" Margin="10,0,0,0" VerticalAlignment="Top" Padding="8,5,8,6" Height="32" Width="220" Grid.Row="1"/>
+        <Button x:Name="buttonApply" Content="Apply selected settings" Click="buttonApply_Click" Margin="10,0,0,0" VerticalAlignment="Top" Padding="8,5,8,6" Height="32" Width="220" Grid.Row="1" />
 
         <!-- Main menu -->
-        <Menu x:Name="menu" Height="41" Margin="5,0,10,0" VerticalAlignment="Top" Grid.Column="2">
+        <Menu x:Name="menu" Height="41" Margin="5,0,20,0" VerticalAlignment="Center" Grid.Column="2">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Grid>
@@ -70,16 +74,26 @@
             </Menu.ItemsPanel>
 
             <!-- Action buttons 1.Edit / 2. Overflow menu -->
-            <MenuItem Header="&#xE792;" Grid.Column="3" HorizontalAlignment="Right" Click="buttonEdit_Click" FontSize="18" Margin="0,0,79,0" RenderTransformOrigin="4.523,0.625" ToolTip="Edit" FontFamily="Segoe MDL2 Assets" VerticalContentAlignment="Center"/>
+            <MenuItem Header="&#xE792;" Grid.Column="3" HorizontalAlignment="Right" Click="buttonEdit_Click" FontSize="18" Margin="0,0,79,0" RenderTransformOrigin="4.523,0.625" ToolTip="Edit" FontFamily="Segoe MDL2 Assets" VerticalContentAlignment="Center" />
 
             <MenuItem Header="&#xE712;" Grid.Column="3" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0" VerticalContentAlignment="Center">
-                <MenuItem Header="Refresh" FontFamily="Segoe UI" x:Name="Refresh" Click="menuRefresh_Click" FontSize="18" />
+                <MenuItem Header="Refresh" FontFamily="Segoe UI" x:Name="Refresh" Click="menuRefresh_Click" FontSize="18">
+                    <MenuItem.Icon>
+                        <ui:FontIcon Glyph="&#xE72C;"></ui:FontIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <Separator />
-                <MenuItem Header="Select all" FontFamily="Segoe UI" x:Name="SelectAll" Click="menuSelectAll_Click" FontSize="18" />
-                <MenuItem Header="Unselect all" FontFamily="Segoe UI" x:Name="UnselectAll" Click="menuUnselectAll_Click" FontSize="18" />
+                <MenuItem Header="Select all" FontFamily="Segoe UI" x:Name="SelectAll" Click="menuSelectAll_Click" FontSize="18">
+                    <MenuItem.Icon>
+                        <ui:FontIcon Glyph="&#xE8B3;"></ui:FontIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Unselect all" FontFamily="Segoe UI" x:Name="UnselectAll" Click="menuUnselectAll_Click" FontSize="18">
+                    <MenuItem.Icon>
+                        <ui:FontIcon Glyph="&#xE8E6;"></ui:FontIcon>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
-
-
     </Grid>
 </Page>
