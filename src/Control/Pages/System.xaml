@@ -9,11 +9,14 @@
       Title="System">
     <Grid>
         <!-- URI-->
-        <TextBlock TextAlignment="Left" Margin="10,10,10,5" FontSize="15">
+        <TextBlock TextAlignment="Left" Margin="10,10,10,5" FontSize="15" TextWrapping="WrapWithOverflow">
            <Run Text="Display, sound, notifications, power" FontSize="18"/>
             <LineBreak />
             <LineBreak />
-         <Hyperlink NavigateUri="ms-settings:about" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My PC's specs" /></Hyperlink><LineBreak /><Italic>Rename your PC, Join domain</Italic>
+         <Hyperlink NavigateUri="ms-settings:about" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My PC's specs" /></Hyperlink><LineBreak /><Run Text="Rename your PC, Join domain"/>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink TextDecorations=""><TextBlock Text="Change Computer name (Classic)"  Name="textCplComputername"  MouseLeftButtonDown="textCplComputername_Click"/></Hyperlink>
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:display-advanced" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Advanced scaling settings" /></Hyperlink>

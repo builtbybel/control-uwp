@@ -1,6 +1,6 @@
-﻿using ModernWpf.Controls;
+﻿using System;
+using ModernWpf.Controls;
 using ModernWpf.Media.Animation;
-using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -53,5 +53,6 @@ namespace Control
                 }
             }
         }
+
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Control.Pages
@@ -19,6 +21,12 @@ namespace Control.Pages
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
+        }
+
+        private void textCplUninstallApps_Click(object sender, RoutedEventArgs e)
+        {
+            var cplPath = System.IO.Path.Combine(Environment.SystemDirectory, "control.exe");
+            Process.Start(cplPath, "/name Microsoft.ProgramsAndFeatures");
         }
     }
 }

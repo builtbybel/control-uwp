@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Windows;
+using System.Diagnostics;
 using System.Windows.Controls;
 
 namespace Control.Pages
@@ -20,5 +22,13 @@ namespace Control.Pages
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
         }
+
+        private void textCplComputername_Click(object sender, RoutedEventArgs e)
+        {
+            var cplPath = System.IO.Path.Combine(Environment.SystemDirectory, "SystemPropertiesComputerName");
+            Process.Start(new ProcessStartInfo(cplPath) { UseShellExecute = true });
+
+        }
+
     }
 }

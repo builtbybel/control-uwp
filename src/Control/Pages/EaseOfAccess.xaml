@@ -10,7 +10,7 @@
 
     <Grid>
         <!-- URI-->
-        <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15">
+        <TextBlock TextAlignment="Left" Margin="10,0,10,15" FontSize="15" TextWrapping="WrapWithOverflow">
            <Run Text="Narrator, magnifier, high contrast" FontSize="18"/>
             <LineBreak />
             <LineBreak />

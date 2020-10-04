@@ -1,8 +1,10 @@
 ﻿using ModernWpf.Controls;
 using System;
 using System.Diagnostics;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 
 namespace Control.Pages
 {
@@ -16,6 +18,8 @@ namespace Control.Pages
             InitializeComponent();
 
             LoadApps();
+
+            checkIsUserAdmin();
         }
 
         public string PageTitle => "Debloat";
@@ -28,13 +32,34 @@ namespace Control.Pages
             e.Handled = true;
         }
 
-        private void LoadApps()
+        private void checkIsUserAdmin()
+        {
+            using WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            if (!principal.IsInRole(WindowsBuiltInRole.Administrator))
+            {
+                textReinstallApps.IsEnabled = false;
+                textReinstallApps.Foreground = Brushes.Gray;
+                textRemoveProvisionedApps.IsEnabled = false;
+                textRemoveProvisionedApps.Foreground = Brushes.Gray;
+
+                System.Windows.Controls.Control[] conts = { checkAllUsers };
+
+                foreach (System.Windows.Controls.Control cont in conts)
+                {
+                    cont.IsEnabled = false;
+                    cont.ToolTip = "Administrator privileges required";
+                }
+            }
+        }
+
+        private async void LoadApps()
         {
             appxViewModel = new AppxViewModel();
             appxViewModel.LoadAppx(checkAllUsers.IsChecked == true, checkExcludeStore.IsChecked == true);
             if (checkOnline.IsChecked == true)
             {
-                appxViewModel.LoadAppxOnline(checkExcludeStore.IsChecked == true);
+                await Task.Run(() => { appxViewModel.LoadAppxOnline(checkExcludeStore.IsChecked == true); });
             }
             this.DataContext = appxViewModel;
             appxViewModel.SortApps();
@@ -76,21 +101,15 @@ namespace Control.Pages
             ContentDialogResult result = await cd.ShowAsync();
             if (result == ContentDialogResult.Primary)
             {
-                // Add some blur effect
-                System.Windows.Media.Effects.BlurEffect myBlur = new System.Windows.Media.Effects.BlurEffect();
-                myBlur.Radius = 5;
-                this.Effect = myBlur;
-
+                ProgressRing.IsActive = true;
                 await Task.Run(() => { RemoveUWP.RemoveAppx(appxViewModel.apps); });
                 LoadApps();
-
-                this.Effect = null;
+                ProgressRing.IsActive = false;
             }
         }
 
         private async void textRemoveOneDrive_Click(object sender, RoutedEventArgs e)
         {
-  
             Process proc = new System.Diagnostics.Process();
             proc.StartInfo.CreateNoWindow = true;
             proc.StartInfo.RedirectStandardError = true;
@@ -117,13 +136,67 @@ namespace Control.Pages
                 proc.StartInfo.Arguments = "/uninstall";
                 proc.Start();
 
-                System.Windows.Media.Effects.BlurEffect myBlur = new System.Windows.Media.Effects.BlurEffect();
-                myBlur.Radius = 5;
-                this.Effect = myBlur;
-
+                ProgressRing.IsActive = true;
                 await Task.Run(() => { proc.WaitForExit(); });
+                ProgressRing.IsActive = false;
+            }
+        }
 
-                this.Effect = null;
+        private static string RunPsCommand(string command)
+        {
+            // Execute powershell script using command arguments as process
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = "powershell.exe";
+            startInfo.Arguments = command;
+            startInfo.RedirectStandardOutput = true;
+            startInfo.RedirectStandardError = true;
+            startInfo.UseShellExecute = false;
+            startInfo.CreateNoWindow = false;
+
+            // Start powershell process using process start info
+            Process process = new Process { StartInfo = startInfo };
+            process.Start();
+
+            return process.StandardOutput.ReadToEnd();
+        }
+
+        private async void textReinstallApps_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog cd = new ContentDialog
+            {
+                Title = "Info",
+                Content = "Do you want to reinstall all built-in Windows 10 apps?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No"
+            };
+
+            ContentDialogResult result = await cd.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                ProgressRing.IsActive = true;
+                await Task.Run(() => { RunPsCommand("Get-AppxPackage -AllUsers| Foreach {Add-AppxPackage -DisableDevelopmentMode -Register “$($_.InstallLocation)\\AppXManifest.xml”}"); });
+                ProgressRing.IsActive = false;
+            }
+        }
+
+        private async void textRemoveProvisionedApps_Click(object sender, RoutedEventArgs e)
+        {
+            ContentDialog cd = new ContentDialog
+            {
+                Title = "Info",
+                Content = "Provisoned apps are applications that Windows will attempt to reinstall during updates, or when a new user account is made. " +
+                          "If you remove these apps you will have to install them manually through the Store app when making new accounts.\r\n\n" +
+                          "Do you want to show all provisioned apps on this system?\nPress <CTRL> to select and remove mutliple apps at the same time.",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No"
+            };
+
+            ContentDialogResult result = await cd.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                ProgressRing.IsActive = true;
+                await Task.Run(() => { RunPsCommand("Get-AppxProvisionedPackage -online | Out-GridView -PassThru | Remove-AppxProvisionedPackage -online"); });
+                ProgressRing.IsActive = false;
             }
         }
     }

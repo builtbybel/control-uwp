@@ -3,7 +3,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:ui="http://schemas.modernwpf.com/2019" x:Class="Control.Pages.Settings"
+      xmlns:ui="http://schemas.modernwpf.com/2019" 
+      x:Class="Control.Pages.Settings"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Settings">
@@ -12,20 +13,19 @@
         <StackPanel Orientation="Vertical">
             <TextBlock TextAlignment="Left" Margin="15,0,0,0"><Run Text="ControlUWP (Preview) " FontSize="20" FontWeight="SemiBold"/>
            <Run Text="{Binding AssemblyVersion, Mode=OneWay, StringFormat='\{0\}'}" /><LineBreak /><LineBreak />
-           <Run Text="Builtbybel" /><LineBreak />
            <Run Text="An enthusiast take on what the Windows 10 Settings app should be and where everything is in place." /><LineBreak /><LineBreak />
            <Run Text="GitHub " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Link" /></Hyperlink><LineBreak />
            <Run Text="License " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp/blob/master/LICENSE" RequestNavigate="Hyperlink_RequestNavigate">
            <Run Text="MIT " /></Hyperlink>
-           </TextBlock>
+            </TextBlock>
         </StackPanel>
 
         <!-- Update button-->
-        <Button x:Name="buttonUpdateAvailable" Content="Settings Update available" Margin="10,195,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="1.4,-0.344" BorderThickness="0" Click="buttonUpdateAvailable_Click" FontWeight="Bold" FontSize="14" Background="#FF0076D2" Foreground="Snow" Visibility="Hidden" />
+        <Button x:Name="buttonUpdateAvailable" Content="Settings Update available" Margin="10,185,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="1.4,-0.344" BorderThickness="0" Click="buttonUpdateAvailable_Click" FontWeight="Bold" FontSize="14" Background="#FF0076D2" Foreground="Snow" Visibility="Hidden" />
 
         <!-- DropDown button -->
         <ui:DropDownButton
-            Content="Click here for additional information about the project" Height="35" Width="370" Margin="10,155,0,0" VerticalAlignment="Top">
+            Content="Click here for additional information about the project" Height="35" Width="370" Margin="10,145,0,0" VerticalAlignment="Top">
             <ui:DropDownButton.Flyout>
                 <ui:Flyout Placement="Bottom">
                     <TextBlock

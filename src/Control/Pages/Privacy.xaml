@@ -74,7 +74,7 @@
             </Menu.ItemsPanel>
 
             <!-- Action buttons 1.Edit / 2. Overflow menu -->
-            <MenuItem Header="&#xE792;" Grid.Column="3" HorizontalAlignment="Right" Click="buttonEdit_Click" FontSize="18" Margin="0,0,79,0" RenderTransformOrigin="4.523,0.625" ToolTip="Edit" FontFamily="Segoe MDL2 Assets" VerticalContentAlignment="Center" />
+            <MenuItem Header="&#xE70F;" Grid.Column="3" HorizontalAlignment="Right" Click="buttonEdit_Click" FontSize="18" Margin="0,0,79,0" RenderTransformOrigin="4.523,0.625" ToolTip="Edit" FontFamily="Segoe MDL2 Assets" VerticalContentAlignment="Center" />
 
             <MenuItem Header="&#xE712;" Grid.Column="3" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0" VerticalContentAlignment="Center">
                 <MenuItem Header="Refresh" FontFamily="Segoe UI" x:Name="Refresh" Click="menuRefresh_Click" FontSize="18">
