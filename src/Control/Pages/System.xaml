@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
       xmlns:local="clr-namespace:Control.Pages"
       mc:Ignorable="d"
       d:DesignHeight="450" d:DesignWidth="800"
@@ -64,12 +65,12 @@
           <Hyperlink NavigateUri="ms-settings:storagepolicies" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Storage Sense (Configure)" /></Hyperlink>
             <LineBreak />
            <LineBreak />
-          <Hyperlink NavigateUri="ms-settings:storagesense" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Storage Sense" /></Hyperlink>
+            <Hyperlink TextDecorations=""><TextBlock Text="Storage Sense" Name="textStorageSense" MouseLeftButtonDown="textStorageSense_Click"/></Hyperlink> 
             <LineBreak />
            <LineBreak />
           <Hyperlink NavigateUri="ms-settings:tabletmode" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Tablet" /></Hyperlink>
             <LineBreak />
            <LineBreak />
-        </TextBlock>
+       </TextBlock>
     </Grid>
 </Page>

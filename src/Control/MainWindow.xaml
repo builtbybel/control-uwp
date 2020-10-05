@@ -9,9 +9,10 @@
         Foreground="{DynamicResource SystemControlPageTextBaseHighBrush}"
         ui:TitleBar.ExtendViewIntoTitleBar="true"
         ui:WindowHelper.UseModernWindowStyle="True"
-        ui:TitleBar.IsBackButtonVisible="True" 
+        ui:TitleBar.IsBackButtonVisible="True"
+        ui:TitleBar.BackRequested="OnBackRequested"
         Title="ControlUWP" Height="865" Width="1034" MinWidth="320" MinHeight="350" WindowStartupLocation="CenterOwner">
-        <Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
@@ -21,17 +22,17 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <ui:NavigationView Header="{Binding Path=Content.PageTitle, ElementName=frame}"
-                           PaneTitle="Control" Grid.RowSpan="2" Grid.Row="0" Grid.ColumnSpan="2" 
-                           AlwaysShowHeader="True" 
-                           x:Name="navigationView"        
-                           OpenPaneLength="320" 
-                           CompactModeThresholdWidth="0" 
-                           IsBackButtonVisible="Collapsed" 
-                           SelectionChanged="NavigationView_SelectionChanged" >
+                           PaneTitle="Control" Grid.RowSpan="2" Grid.Row="0" Grid.ColumnSpan="2"
+                           AlwaysShowHeader="True"
+                           x:Name="navigationView"
+                           OpenPaneLength="320"
+                           CompactModeThresholdWidth="0"
+                           IsBackButtonVisible="Collapsed"
+                           SelectionChanged="NavigationView_SelectionChanged">
 
             <!-- Glyph list: https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font -->
             <ui:NavigationView.MenuItems>
-                <ui:NavigationViewItem IsSelected="True" Icon="Home" Content="Home" Tag="Home"/>
+                <ui:NavigationViewItem IsSelected="True" Icon="Home" Content="Home" Tag="Home" />
 
                 <ui:NavigationViewItem Content="Apps" Tag="Apps">
                     <ui:NavigationViewItem.Icon>
@@ -41,7 +42,7 @@
 
                 <ui:NavigationViewItem Content="Debloat" Tag="Debloat">
                     <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon Glyph="&#xE74D;"/>
+                        <ui:FontIcon Glyph="&#xE74D;" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
@@ -123,8 +124,8 @@
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
             </ui:NavigationView.MenuItems>
-            <ScrollViewer Grid.Row="1" >
-                <ui:Frame x:Name="frame" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"  NavigationUIVisibility="Hidden" > </ui:Frame>
+            <ScrollViewer Grid.Row="1">
+                <ui:Frame x:Name="frame" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"  NavigationUIVisibility="Hidden" ></ui:Frame>
             </ScrollViewer>
         </ui:NavigationView>
     </Grid>

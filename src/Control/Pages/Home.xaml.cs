@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 
@@ -23,6 +24,21 @@ namespace Control.Pages
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
             e.Handled = true;
+        }
+
+        private void textPrivacy_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("/Pages/Privacy.xaml", UriKind.Relative));
+        }
+
+        private void textDebloat_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("/Pages/Debloat.xaml", UriKind.Relative));
+        }
+
+        private void textStorageSense_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("/Pages/System/StorageSense.xaml", UriKind.Relative));
         }
     }
 }

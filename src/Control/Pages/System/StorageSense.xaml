@@ -1,0 +1,42 @@
+﻿<Page x:Class="Control.Pages.StorageSense"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Control.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="StorageSense">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="228"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock TextAlignment="Left" Margin="10,0,43,398" TextWrapping="WrapWithOverflow">
+           <Run Text="Storage Sense can free up space by getting rid of files you don't need, like temporary files and content in your recycle bin." FontSize="18" />
+        </TextBlock>
+
+        <!-- Storage areas -->
+        <CheckBox x:Name="checkTemp" Content="Temporary files" Margin="10,88,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="122"/>
+        <CheckBox x:Name="checkLogs" Content="Windows &amp; IIS log files" Margin="10,125,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="171"/>
+        <CheckBox x:Name="checkPrefetch" Content="Prefetch cache" Margin="10,162,0,0" VerticalAlignment="Top" Height="32" Width="120"/>
+        <CheckBox x:Name="checkMiniDumps" Content="Memory dump files" Margin="10,199,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="180"/>
+        <CheckBox x:Name="checkErrorReports" Content="Error reports" Margin="10,239,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="120"/>
+        <CheckBox x:Name="checkRecycleBin" Content="Empty Recycle bin" Margin="10,276,0,0" VerticalAlignment="Top" Height="32" Width="140"/>
+
+        <!-- Clean button -->
+        <Button x:Name="buttonDoStorage" Content="Remove files" Click="buttonDoStorage_Click" Margin="10,326,0,0" VerticalAlignment="Top" Padding="8,5,8,6" Height="32" Width="220" />
+
+        <!-- Quick links -->
+        <TextBlock TextAlignment="Left" Margin="10,7,23,13" TextWrapping="WrapWithOverflow" FontSize="15" Grid.Column="1">
+           <Bold><Run Text="Quick links" /></Bold>
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink NavigateUri="ms-settings:storagesense" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Storage Sense" /></Hyperlink>
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink NavigateUri="ms-settings:storagepolicies" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Storage Sense (Configure)" /> </Hyperlink>
+        </TextBlock>
+
+    </Grid>
+</Page>

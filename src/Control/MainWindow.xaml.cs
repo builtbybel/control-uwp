@@ -1,6 +1,6 @@
-﻿using System;
-using ModernWpf.Controls;
+﻿using ModernWpf.Controls;
 using ModernWpf.Media.Animation;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -54,5 +54,23 @@ namespace Control
             }
         }
 
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            BackRequested();
+        }
+
+        private bool BackRequested()
+        {
+            if (!frame.CanGoBack) return false;
+
+            if (navigationView.IsPaneOpen &&
+                (navigationView.DisplayMode == NavigationViewDisplayMode.Minimal
+                 || navigationView.DisplayMode == NavigationViewDisplayMode.Compact))
+            {
+                return false;
+            }
+            frame.GoBack();
+            return true;
+        }
     }
 }

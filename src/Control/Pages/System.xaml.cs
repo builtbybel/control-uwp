@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Windows;
 using System.Diagnostics;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Control.Pages
@@ -27,8 +27,11 @@ namespace Control.Pages
         {
             var cplPath = System.IO.Path.Combine(Environment.SystemDirectory, "SystemPropertiesComputerName");
             Process.Start(new ProcessStartInfo(cplPath) { UseShellExecute = true });
-
         }
 
+        private void textStorageSense_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("/Pages/System/StorageSense.xaml", UriKind.Relative));
+        }
     }
 }

@@ -26,5 +26,18 @@
           <Hyperlink NavigateUri="windowsdefender:" TextDecorations=""  RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Security Center" /></Hyperlink>
         </TextBlock>
 
+        <!-- Intro -->
+        <TextBlock TextAlignment="Left" Margin="0,0,53,15" FontSize="15" TextWrapping="WrapWithOverflow" HorizontalAlignment="Right" Width="198">
+           <Run Text="Introducing latest settings" FontSize="18" />
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink TextDecorations=""><TextBlock Text="Configure privacy" Name="textPrivacy" MouseLeftButtonDown="textPrivacy_Click" TextWrapping="WrapWithOverflow"/></Hyperlink> 
+            <LineBreak />
+            <LineBreak />
+          <Hyperlink TextDecorations=""><TextBlock Text="Remove built-in apps" Name="textDebloat" MouseLeftButtonDown="textDebloat_Click" TextWrapping="WrapWithOverflow"/></Hyperlink> 
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink TextDecorations=""><TextBlock Text="Storage Sense" Name="textStorageSense" MouseLeftButtonDown="textStorageSense_Click" TextWrapping="WrapWithOverflow"/></Hyperlink> 
+        </TextBlock>
     </Grid>
 </Page>
