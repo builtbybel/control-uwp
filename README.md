@@ -33,7 +33,7 @@ alt="GitHub issues">
   <a href="#credits">Credits</a>
 </p>
 
-![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp.png)
+![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp-intro.gif)
 ![screenshot](https://github.com/builtbybel/control-uwp/blob/master/assets/controluwp2.png)
 
 ## What is ControlUWP?
