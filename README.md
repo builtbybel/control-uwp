@@ -44,7 +44,8 @@ ControlUWP app doesn't replace (currently) the native Windows 10 settings panel 
 
 After a few weeks of experimentation work (sense and nonsense of such an application) around the app and concept, I decided to continue this project. 
 
-#### The first preview can now be tested. Everyone is also welcome to help and to donate a page of convenient settings.
+#### More information can be found in the blog post here
+http://www.builtbybel.com/blog/12-company-announcements/40-relaunch-of-windows-10-settings-app-with-controluwp
 
 ## Download
 
