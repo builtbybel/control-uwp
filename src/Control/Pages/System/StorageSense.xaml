@@ -12,20 +12,31 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="228"/>
         </Grid.ColumnDefinitions>
-        <TextBlock TextAlignment="Left" Margin="10,0,43,398" TextWrapping="WrapWithOverflow">
+
+        <TextBlock TextAlignment="Left" Margin="10,0,43,398" TextWrapping="WrapWithOverflow" MinWidth="400">
            <Run Text="Storage Sense can free up space by getting rid of files you don't need, like temporary files and content in your recycle bin." FontSize="18" />
+              <LineBreak />
+              <LineBreak />
+            <Run Text="*Some options requires elevated rights." FontSize="14" Foreground="IndianRed"/>
         </TextBlock>
 
         <!-- Storage areas -->
-        <CheckBox x:Name="checkTemp" Content="Temporary files" Margin="10,88,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="122"/>
-        <CheckBox x:Name="checkLogs" Content="Windows &amp; IIS log files" Margin="10,125,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="171"/>
-        <CheckBox x:Name="checkPrefetch" Content="Prefetch cache" Margin="10,162,0,0" VerticalAlignment="Top" Height="32" Width="120"/>
-        <CheckBox x:Name="checkMiniDumps" Content="Memory dump files" Margin="10,199,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="180"/>
-        <CheckBox x:Name="checkErrorReports" Content="Error reports" Margin="10,239,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="120"/>
-        <CheckBox x:Name="checkRecycleBin" Content="Empty Recycle bin" Margin="10,276,0,0" VerticalAlignment="Top" Height="32" Width="140"/>
+        <CheckBox x:Name="checkWindowsUpdate" Content="Windows Update files" Margin="10,124,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="260"/>
+        <CheckBox x:Name="checkDirectXShader" Content="DirectX Shader Cache" Margin="10,161,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="260"/>
+        <CheckBox x:Name="checkDeliveryOptimization" Content="Delivery Optimization files" Margin="10,198,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="260"/>
+        <CheckBox x:Name="checkTemp" Content="Temporary files" Margin="10,235,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="122"/>
+        <CheckBox x:Name="checkThumbnail" Content="Thumbnail cache" Margin="10,272,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="171"/>
+        <CheckBox x:Name="checkLogs" Content="Windows &amp; IIS log files" Margin="10,383,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="171"/>
+        <CheckBox x:Name="checkPrefetch" Content="Prefetch cache" Margin="11,309,0,0" VerticalAlignment="Top" Height="32" Width="120"/>
+        <CheckBox x:Name="checkMiniDumps" Content="Memory dump files" Margin="10,346,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="180"/>
+        <CheckBox x:Name="checkErrorReports" Content="Error reports" Margin="10,420,0,0" VerticalAlignment="Top" IsChecked="True" Height="32" Width="120"/>
+        <CheckBox x:Name="checkDNSCache" Content="DNS Cache" Margin="10,457,0,0" VerticalAlignment="Top" Height="32" Width="140"/>
+        <CheckBox x:Name="checkRecentDocuments" Content="Recent documents" Margin="10,494,0,0" VerticalAlignment="Top" Height="32" Width="200"/>
+        <CheckBox x:Name="checkClipboard" Content="Clipboard" Margin="10,531,0,0" VerticalAlignment="Top" Height="32" Width="140"/>
+        <CheckBox x:Name="checkRecycleBin" Content="Empty Recycle bin" Margin="10,568,0,0" VerticalAlignment="Top" Height="32" Width="140"/>
 
         <!-- Clean button -->
-        <Button x:Name="buttonDoStorage" Content="Remove files" Click="buttonDoStorage_Click" Margin="10,326,0,0" VerticalAlignment="Top" Padding="8,5,8,6" Height="32" Width="220" />
+        <Button x:Name="buttonDoStorage" Content="Remove files" Click="buttonDoStorage_Click" Margin="10,620,0,50" VerticalAlignment="Top" Height="32" Width="220" />
 
         <!-- Quick links -->
         <TextBlock TextAlignment="Left" Margin="10,7,23,13" TextWrapping="WrapWithOverflow" FontSize="15" Grid.Column="1">
@@ -36,7 +47,9 @@
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:storagepolicies" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Storage Sense (Configure)" /> </Hyperlink>
+           <LineBreak />
+            <LineBreak />
+          <Hyperlink TextDecorations=""><TextBlock Text="Run Disk Clean-up (Classic)" Name="textDiskCleanup" MouseLeftButtonDown="textDiskCleanup_Click" TextWrapping="WrapWithOverflow"/></Hyperlink> 
         </TextBlock>
-
     </Grid>
 </Page>

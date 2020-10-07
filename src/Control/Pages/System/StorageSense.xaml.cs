@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace Control.Pages
@@ -34,14 +35,41 @@ namespace Control.Pages
         {
             Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
             {
+                if (checkWindowsUpdate.IsChecked == true)
+                {
+                    CleanStorage.WindowsUpdate();
+                }
+
+                if (checkDirectXShader.IsChecked == true)
+                {
+                    CleanStorage.DirectXShaderCache();
+                }
+
+                if (checkDeliveryOptimization.IsChecked == true)
+                {
+                    CleanStorage.DeliveryOptimization();
+                }
+
                 if (checkTemp.IsChecked == true)
                 {
                     CleanStorage.Temp();
                 }
+
+                if (checkThumbnail.IsChecked == true)
+                {
+                    CleanStorage.ThumbnailCache();
+                }
+
                 if (checkMiniDumps.IsChecked == true)
                 {
                     CleanStorage.MiniDumps();
                 }
+
+                if (checkClipboard.IsChecked == true)
+                {
+                    Clipboard.Clear();
+                }
+
                 if (checkPrefetch.IsChecked == true)
                 {
                     CleanStorage.Prefetch();
@@ -54,6 +82,17 @@ namespace Control.Pages
                 {
                     CleanStorage.ErrorReports();
                 }
+
+                if (checkDNSCache.IsChecked == true)
+                {
+                    CleanStorage.DNSCache();
+                }
+
+                if (checkRecentDocuments.IsChecked == true)
+                {
+                    CleanStorage.RecentDocuments();
+                }
+
                 if (checkRecycleBin.IsChecked == true)
                 {
                     CleanStorage.RecycleBin();
@@ -75,6 +114,12 @@ namespace Control.Pages
                 Content = "Removing files has been successfully finished.",
                 PrimaryButtonText = "OK",
             }; ContentDialogResult result = await cd.ShowAsync();
+        }
+
+        private void textDiskCleanup_Click(object sender, RoutedEventArgs e)
+        {
+            var cplPath = System.IO.Path.Combine(Environment.SystemDirectory, "cleanmgr.exe");
+            Process.Start(cplPath);
         }
     }
 }

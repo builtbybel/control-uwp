@@ -27,7 +27,7 @@
         </TextBlock>
 
         <!-- Intro -->
-        <TextBlock TextAlignment="Left" Margin="0,0,53,15" FontSize="15" TextWrapping="WrapWithOverflow" HorizontalAlignment="Right" Width="198">
+        <TextBlock TextAlignment="Left" Margin="0,0,33,15" FontSize="15" TextWrapping="WrapWithOverflow" HorizontalAlignment="Right" Width="218">
            <Run Text="Introducing latest settings" FontSize="18" />
             <LineBreak />
             <LineBreak />
@@ -38,6 +38,13 @@
             <LineBreak />
             <LineBreak />
          <Hyperlink TextDecorations=""><TextBlock Text="Storage Sense" Name="textStorageSense" MouseLeftButtonDown="textStorageSense_Click" TextWrapping="WrapWithOverflow"/></Hyperlink> 
+            <LineBreak />
+            <LineBreak />
+            <Run Text="Infos" FontSize="18"  />
+            <LineBreak />
+            <LineBreak />
+          <Run Text="Read more about this project" />
+          <Hyperlink NavigateUri="http://www.builtbybel.com/blog/12-company-announcements/40-relaunch-of-windows-10-settings-app-with-controluwp" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="here"/></Hyperlink>
         </TextBlock>
     </Grid>
 </Page>

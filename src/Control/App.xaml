@@ -10,8 +10,8 @@
                 <ui:ThemeResources>
                     <ui:ThemeResources.ThemeDictionaries>
                         <ResourceDictionary x:Key="Light" ui:ThemeDictionary.Key="Light">
-                            <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="#FAF9F8"/>
-                            <SolidColorBrush x:Key="NavigationViewDefaultPaneBackground" Color="#FAF9F8" />
+                            <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="#ECECEC"/>
+                            <SolidColorBrush x:Key="NavigationViewDefaultPaneBackground" Color="#ECECEC" />
                         </ResourceDictionary>
                         <ResourceDictionary x:Key="Dark" ui:ThemeDictionary.Key="Dark">
                         </ResourceDictionary>

@@ -4,6 +4,12 @@ using System.Runtime.InteropServices;
 
 namespace Control
 {
+    public static class FlushDns
+    {
+        [DllImport("dnsapi", EntryPoint = "DnsFlushResolverCache")]
+        public static extern void FlushCache();
+    }
+
     internal static class CleanStorage
     {
         private enum RecycleFlag : int
@@ -56,9 +62,20 @@ namespace Control
             catch { }
         }
 
-        internal static void RecycleBin()
+        internal static void WindowsUpdate()
         {
-            SHEmptyRecycleBin(IntPtr.Zero, null, RecycleFlag.SHERB_NOSOUND | RecycleFlag.SHERB_NOCONFIRMATION);
+            EmptyFolder(OSDriveWindows + "\\SoftwareDistribution\\Download");
+            EmptyFolder(OSDriveWindows + "\\Installer\\$PatchCache$");
+        }
+
+        internal static void DirectXShaderCache()
+        {
+            EmptyFolder(ProfileAppDataLocal + "\\D3DSCache");
+        }
+
+        internal static void DeliveryOptimization()
+        {
+            EmptyFolder(OSDriveWindows + "\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization");
         }
 
         internal static void Temp()
@@ -67,9 +84,25 @@ namespace Control
             EmptyFolder(OSDriveWindows + "\\Temp");
         }
 
+        internal static void ThumbnailCache()
+        {
+            EmptyFolder(ProfileAppDataLocal + "\\Microsoft\\Windows\\Explorer");
+        }
+
+        internal static void Logs()
+        {
+            EmptyFolder(System32Folder + "\\LogFiles"); // Windows logs
+            EmptyFolder(OSDrive + "\\inetpub\\logs\\LogFiles"); // IIS logs
+        }
+
         internal static void MiniDumps()
         {
             EmptyFolder(OSDriveWindows + "\\Minidump");
+        }
+
+        internal static void Prefetch()
+        {
+            EmptyFolder(OSDriveWindows + "\\Prefetch");
         }
 
         internal static void ErrorReports()
@@ -84,15 +117,19 @@ namespace Control
             EmptyFolder(ProgramData + "\\Microsoft\\Windows\\WER\\ERC");
         }
 
-        internal static void Prefetch()
+        internal static void DNSCache()
         {
-            EmptyFolder(OSDriveWindows + "\\Prefetch");
+            FlushDns.FlushCache();
         }
 
-        internal static void Logs()
+        internal static void RecentDocuments()
         {
-            EmptyFolder(System32Folder + "\\LogFiles"); // Windows logs
-            EmptyFolder(OSDrive + "\\inetpub\\logs\\LogFiles"); // IIS logs
+            EmptyFolder(ProfileAppDataRoaming + "\\Microsoft\\Windows\\Recent");
+        }
+
+        internal static void RecycleBin()
+        {
+            SHEmptyRecycleBin(IntPtr.Zero, null, RecycleFlag.SHERB_NOSOUND | RecycleFlag.SHERB_NOCONFIRMATION);
         }
     }
 }

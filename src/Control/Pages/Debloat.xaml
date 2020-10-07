@@ -14,12 +14,15 @@
             <ColumnDefinition Width="269" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock TextAlignment="Left" Margin="10,0,10,10">
+        <TextBlock TextAlignment="Left" Margin="10,0,10,10" TextWrapping="WrapWithOverflow">
            <Run Text="Remove pre-installed apps" FontSize="18" />
+              <LineBreak />
+              <LineBreak />
+            <Run Text="*Some options requires elevated rights." FontSize="14" Foreground="IndianRed"/>
         </TextBlock>
 
         <!-- Apps list -->
-        <ItemsControl ItemsSource="{Binding Path=apps}" Width="330" HorizontalAlignment="Left" Margin="10,95,0,0">
+        <ItemsControl ItemsSource="{Binding Path=apps}" Width="330" HorizontalAlignment="Left" Margin="10,120,0,0">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Margin="0,0,0,8">
@@ -88,7 +91,7 @@
         </TextBlock>
 
         <!-- Action buttons -->
-        <Button x:Name="buttonRemove" Content="Remove selected apps" Height="32" Margin="10,43,0,0" VerticalAlignment="Top" Width="220" ToolTipService.ShowOnDisabled="True" Click="buttonRemove_Click" />
+        <Button x:Name="buttonRemove" Content="Remove selected apps" Height="32" Margin="10,73,0,0" VerticalAlignment="Top" Width="220" ToolTipService.ShowOnDisabled="True" Click="buttonRemove_Click" />
         <CheckBox x:Name="checkExcludeStore" Content="Exclude Microsoft Store" Margin="36,301,0,0" VerticalAlignment="Top" Grid.Column="1" IsChecked="true" ToolTip="Hide Microsoft Store from list" Height="38" Width="207" />
         <CheckBox x:Name="checkAllUsers" Content="All Users" Margin="36,339,0,0" VerticalAlignment="Top" Grid.Column="1" ToolTipService.ShowOnDisabled="True" Height="38" Width="207" />
         <CheckBox x:Name="checkOnline" Content="Include Provisioned apps" Margin="36,301,0,0" VerticalAlignment="Top" Grid.Column="1" ToolTipService.ShowOnDisabled="True" Height="38" Width="207" Visibility="Hidden" />
