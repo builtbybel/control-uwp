@@ -1,17 +1,17 @@
-﻿using System;
+﻿using ModernWpf.Controls;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace Control.Pages
 {
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Settings : Page, INavPage
+    public partial class Settings : System.Windows.Controls.Page, INavPage
     {
         private readonly string _releaseURL = "https://raw.githubusercontent.com/builtbybel/control-uwp/master/latest.txt";
 
@@ -26,14 +26,12 @@ namespace Control.Pages
         {
             InitializeComponent();
 
-            UpdateCheck();         // Check for app updates
-
             DataContext = this;  // Bind AssemblyVersion
         }
 
         public string PageTitle => "Settings";
 
-        private void UpdateCheck()
+        private async void UpdateCheck()
         {
             try
             {
@@ -59,23 +57,42 @@ namespace Control.Pages
 
             if (equals == 0)
             {
-                buttonUpdateAvailable.Visibility = Visibility.Visible; // Up-to-date
-                buttonUpdateAvailable.Content = "You are up-to-date";
+                buttonCheckForUpdates.Content = "You are up-to-date";
+
             }
             else if (equals < 0)
             {
-                buttonUpdateAvailable.Visibility = Visibility.Hidden;   // Unofficial;
+                buttonCheckForUpdates.Content = "You are up-to-date"; // Unofficial
             }
             else    // New release available!
             {
-                buttonUpdateAvailable.Visibility = Visibility.Visible;
-                buttonUpdateAvailable.Content = "Settings update available";
+                var updateDialog = new ContentDialog()
+                {
+                    Title = "Update Available",
+                    Content = $"There is an update available.\nWould you like to update now?",
+                    PrimaryButtonText = "Yes",
+                    CloseButtonText = "No"
+                };
+                var result = await updateDialog.ShowAsync();
+                if (result == ContentDialogResult.Primary)
+                {
+                    var ps = new ProcessStartInfo("https://github.com/builtbybel/control-uwp/releases/tag/" + LatestVersion)
+                    {
+                        UseShellExecute = true,
+                    };
+                    Process.Start(ps);
+                }
             }
         }
 
-        private void buttonUpdateAvailable_Click(object sender, RoutedEventArgs e)
+        private void buttonCheckForUpdates_Click(object sender, RoutedEventArgs e)
         {
-            var ps = new ProcessStartInfo("https://github.com/builtbybel/control-uwp/releases/tag/" + LatestVersion)
+            UpdateCheck();
+        }
+
+        private void buttonOpenChangelog_Click(object sender, RoutedEventArgs e)
+        {
+            var ps = new ProcessStartInfo("https://github.com/builtbybel/control-uwp/releases/tag/" + CurrentVersion)
             {
                 UseShellExecute = true,
             };

@@ -27,7 +27,6 @@ namespace Control
             { "Search", typeof(Pages.Search) },
             { "System", typeof(Pages.SystemPage) },
             { "Time & Language", typeof(Pages.TimeAndLanguage) },
-            { "Tweaks", typeof(Pages.Tweaks) },
             { "Update & Security", typeof(Pages.UpdateAndSecurity) }
         };
 
@@ -49,7 +48,7 @@ namespace Control
                 {
                     var pageType = Pages[(string)selectedItem.Tag];
                     // https://docs.microsoft.com/en-us/uwp/api/windows.ui.xaml.media.animation.drillinnavigationtransitioninfo?view=winrt-19041
-                    frame.Navigate(pageType, null, new DrillInNavigationTransitionInfo());
+                    frame.Navigate(pageType, null, new SuppressNavigationTransitionInfo());
                 }
             }
         }

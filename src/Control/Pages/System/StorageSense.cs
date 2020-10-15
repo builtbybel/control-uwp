@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 
@@ -64,8 +65,18 @@ namespace Control
 
         internal static void WindowsUpdate()
         {
-            EmptyFolder(OSDriveWindows + "\\SoftwareDistribution\\Download");
+            ProcessStartInfo info = new ProcessStartInfo("net", "stop wuauserv");
+            info.CreateNoWindow = true;
+            info.UseShellExecute = false;
+            Process.Start(info);
+
+            EmptyFolder(OSDriveWindows + "\\SoftwareDistribution");
             EmptyFolder(OSDriveWindows + "\\Installer\\$PatchCache$");
+
+            ProcessStartInfo info2 = new ProcessStartInfo("net", "start wuauserv");
+            info2.CreateNoWindow = true;
+            info2.UseShellExecute = false;
+            Process.Start(info2);
         }
 
         internal static void DirectXShaderCache()
@@ -75,7 +86,17 @@ namespace Control
 
         internal static void DeliveryOptimization()
         {
+            ProcessStartInfo info = new ProcessStartInfo("net", "stop dosvc");
+            info.CreateNoWindow = true;
+            info.UseShellExecute = false;
+            Process.Start(info);
+
             EmptyFolder(OSDriveWindows + "\\ServiceProfiles\\NetworkService\\AppData\\Local\\Microsoft\\Windows\\DeliveryOptimization");
+
+            ProcessStartInfo info2 = new ProcessStartInfo("net", "start dosvc");
+            info2.CreateNoWindow = true;
+            info2.UseShellExecute = false;
+            Process.Start(info2);
         }
 
         internal static void Temp()

@@ -11,7 +11,7 @@
         ui:WindowHelper.UseModernWindowStyle="True"
         ui:TitleBar.IsBackButtonVisible="True"
         ui:TitleBar.BackRequested="OnBackRequested"
-        Title="ControlUWP" Height="865" Width="1034" MinWidth="320" MinHeight="350" WindowStartupLocation="CenterOwner">
+        Title="ControlUWP" Height="865" Width="1034" MinWidth="500" MinHeight="350" WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -28,6 +28,7 @@
                            OpenPaneLength="320"
                            CompactModeThresholdWidth="0"
                            IsBackButtonVisible="Collapsed"
+                           IsSettingsVisible="True"
                            SelectionChanged="NavigationView_SelectionChanged">
 
             <!-- Glyph list: https://docs.microsoft.com/en-us/windows/uwp/design/style/segoe-ui-symbol-font -->
@@ -112,18 +113,13 @@
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
 
-                <ui:NavigationViewItem Content="Tweaks" Tag="Tweaks">
-                    <ui:NavigationViewItem.Icon>
-                        <ui:FontIcon Glyph="&#xE734;" />
-                    </ui:NavigationViewItem.Icon>
-                </ui:NavigationViewItem>
-
                 <ui:NavigationViewItem Content="Update &amp; Security" Tag="Update &amp; Security">
                     <ui:NavigationViewItem.Icon>
                         <ui:FontIcon Glyph="&#xE895;" />
                     </ui:NavigationViewItem.Icon>
                 </ui:NavigationViewItem>
             </ui:NavigationView.MenuItems>
+
             <ScrollViewer Grid.Row="1">
                 <ui:Frame x:Name="frame" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True"  NavigationUIVisibility="Hidden" ></ui:Frame>
             </ScrollViewer>

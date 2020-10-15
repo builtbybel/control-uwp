@@ -13,7 +13,7 @@
           <Run Text="Windows update, recovery, backup" FontSize="18"/>
             <LineBreak />
             <LineBreak />
-         <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for Windows updates" /></Hyperlink><LineBreak /><Run Text="Recommended"/>
+         <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Check for Windows updates" /></Hyperlink><LineBreak /><Run Text="Recommended" FontSize="14"/>
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="ms-settings:windowsupdate-options" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Advanced Update options" /></Hyperlink>
@@ -25,7 +25,7 @@
           <Hyperlink NavigateUri="ms-settings:windowsupdate-history" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="View update history" /></Hyperlink>
             <LineBreak />
            <LineBreak />
-          <Hyperlink NavigateUri="ms-settings:windowsinsider" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Insider Program" /></Hyperlink><LineBreak /><Run Text="NOTE: Diagnostic Data must be set to Full to get preview builds from Windows-Insider-Program!"/>
+          <Hyperlink NavigateUri="ms-settings:windowsinsider" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Insider Program" /></Hyperlink><LineBreak /><Run Text="NOTE: Diagnostic Data must be set to Full to get preview builds from Windows-Insider-Program!" FontSize="14"/>
             <LineBreak />
            <LineBreak />
           <Hyperlink NavigateUri="ms-settings:backup" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Backup" /></Hyperlink>

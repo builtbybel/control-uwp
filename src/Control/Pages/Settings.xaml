@@ -6,38 +6,30 @@
       xmlns:ui="http://schemas.modernwpf.com/2019" 
       x:Class="Control.Pages.Settings"
       mc:Ignorable="d"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="800" 
       Title="Settings">
     <Grid>
-        <!-- App info-->
-        <StackPanel Orientation="Vertical">
-            <TextBlock TextAlignment="Left" Margin="15,0,0,0"><Run Text="ControlUWP (Preview) " FontSize="20" FontWeight="SemiBold"/>
-           <Run Text="{Binding AssemblyVersion, Mode=OneWay, StringFormat='\{0\}'}" /><LineBreak /><LineBreak />
+
+        <!-- Versioning -->
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" FontSize="20" Content="Updates"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,41,0,0"> <Run Text="Version" />
+        <Run Text="{Binding AssemblyVersion, Mode=OneWay, StringFormat='\{0\}'}" /> <Run Text="(Preview)" />
+        </TextBlock>
+
+        <!-- Updates -->
+        <Button x:Name="buttonCheckForUpdates" Content="Check for updates" Margin="10,117,0,0" VerticalAlignment="Top" Width="138" RenderTransformOrigin="1.4,-0.344" BorderThickness="0" Click="buttonCheckForUpdates_Click" FontSize="14" />
+
+        <Button VerticalAlignment="Top" Margin="10,72,0,0" Content="Changelog" Click="buttonOpenChangelog_Click" Width="94"/>
+
+        <!-- App info -->
+        <TextBlock TextAlignment="Left" Margin="10,179,214,138" TextWrapping="WrapWithOverflow"><Run Text="About" FontSize="20" />
+            <LineBreak />
+            <LineBreak />
            <Run Text="An enthusiast take on what the Windows 10 Settings app should be and where everything is in place." /><LineBreak /><LineBreak />
            <Run Text="GitHub " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Link" /></Hyperlink><LineBreak />
-           <Run Text="License " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp/blob/master/LICENSE" RequestNavigate="Hyperlink_RequestNavigate">
-           <Run Text="MIT " /></Hyperlink>
-            </TextBlock>
-        </StackPanel>
-
-        <!-- Update button-->
-        <Button x:Name="buttonUpdateAvailable" Content="Settings Update available" Margin="10,185,0,0" VerticalAlignment="Top" Width="188" RenderTransformOrigin="1.4,-0.344" BorderThickness="0" Click="buttonUpdateAvailable_Click" FontWeight="Bold" FontSize="14" Background="#FF0076D2" Foreground="Snow" Visibility="Hidden" />
-
-        <!-- DropDown button -->
-        <ui:DropDownButton
-            Content="Click here for additional information about the project" Height="35" Width="370" Margin="10,145,0,0" VerticalAlignment="Top">
-            <ui:DropDownButton.Flyout>
-                <ui:Flyout Placement="Bottom">
-                    <TextBlock
-                        x:Name="aboutTextBox"
-                        Margin="10"
-                        HorizontalAlignment="Center"
-                        FontFamily="Courier New"
-                        FontSize="12"
-                        FontWeight="Light"
-                        TextAlignment="Left"><Run Text="ControlUWP, the alternative Control Panel for Windows 10" /><LineBreak /><Run Text="Copyright (C) 2020 Builtbybel" /><LineBreak /><LineBreak /><Run Text="Contribute to the project on GitHub" /><LineBreak /><Underline><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="https://github.com/builtbybel/control-uwp" /></Hyperlink></Underline><LineBreak /><Run Text="You can also follow me on Twitter" /><LineBreak /><Underline><Hyperlink NavigateUri="https://www.twitter.com/builtbybel" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="https://www.twitter.com/builtbybel" /></Hyperlink></Underline></TextBlock>
-                </ui:Flyout>
-            </ui:DropDownButton.Flyout>
-        </ui:DropDownButton>
+           <Run Text="License " /><Hyperlink NavigateUri="https://github.com/builtbybel/control-uwp/blob/master/LICENSE" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="MIT " /></Hyperlink><LineBreak />
+           <Run Text="Twitter " /><Hyperlink NavigateUri="https://www.twitter.com/builtbybel" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Link " /></Hyperlink>
+        </TextBlock>
     </Grid>
 </Page>

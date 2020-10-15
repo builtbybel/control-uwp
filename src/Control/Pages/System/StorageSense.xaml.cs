@@ -31,6 +31,14 @@ namespace Control.Pages
             e.Handled = true;
         }
 
+        private void menuSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void menuUnselectAll_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
         private void RemoveFiles()
         {
             Dispatcher.BeginInvoke(DispatcherPriority.Input, new ThreadStart(() =>
@@ -106,14 +114,14 @@ namespace Control.Pages
 
             await Task.Run(() => { RemoveFiles(); });
 
-            buttonDoStorage.IsEnabled = true;
-
             ContentDialog cd = new ContentDialog
             {
                 Title = "Storage Sense",
                 Content = "Removing files has been successfully finished.",
                 PrimaryButtonText = "OK",
             }; ContentDialogResult result = await cd.ShowAsync();
+
+            buttonDoStorage.IsEnabled = true;
         }
 
         private void textDiskCleanup_Click(object sender, RoutedEventArgs e)

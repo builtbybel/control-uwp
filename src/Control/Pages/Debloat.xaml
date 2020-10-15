@@ -14,11 +14,11 @@
             <ColumnDefinition Width="269" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock TextAlignment="Left" Margin="10,0,10,10" TextWrapping="WrapWithOverflow">
+        <TextBlock TextAlignment="Left" Margin="10,0,10,10" TextWrapping="WrapWithOverflow" MinWidth="350">
            <Run Text="Remove pre-installed apps" FontSize="18" />
               <LineBreak />
               <LineBreak />
-            <Run Text="*Some options requires elevated rights." FontSize="14" Foreground="IndianRed"/>
+            <Run Text="*Some options on this page requires elevated rights." FontSize="14" Foreground="IndianRed"/>
         </TextBlock>
 
         <!-- Apps list -->
@@ -34,7 +34,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <!-- Main menu -->
+        <!-- Overflow menu -->
         <Menu x:Name="menu" Height="41" Margin="5,0,15,0" VerticalAlignment="Top" Grid.Column="1">
             <Menu.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -48,7 +48,6 @@
                 </ItemsPanelTemplate>
             </Menu.ItemsPanel>
 
-            <!-- Overflow menu -->
             <MenuItem Header="&#xE712;" Grid.Column="3" HorizontalAlignment="Right" FontFamily="Segoe MDL2 Assets" FontSize="18" Margin="0" VerticalContentAlignment="Center">
                 <MenuItem Header="Refresh" FontFamily="Segoe UI" x:Name="Refresh" Click="menuRefresh_Click" FontSize="18">
                     <MenuItem.Icon>

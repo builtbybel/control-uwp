@@ -6,6 +6,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+           
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemeResources>
                     <ui:ThemeResources.ThemeDictionaries>
@@ -18,6 +19,7 @@
                     </ui:ThemeResources.ThemeDictionaries>
                 </ui:ThemeResources>
                 <ui:XamlControlsResources />
+                
                 <!--  Other merged dictionaries here  -->
             </ResourceDictionary.MergedDictionaries>
             <!--  Other app resources here  -->

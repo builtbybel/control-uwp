@@ -14,7 +14,7 @@
            <Run Text="Display, sound, notifications, power" FontSize="18"/>
             <LineBreak />
             <LineBreak />
-         <Hyperlink NavigateUri="ms-settings:about" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My PC's specs" /></Hyperlink><LineBreak /><Run Text="Rename your PC, Join domain"/>
+         <Hyperlink NavigateUri="ms-settings:about" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My PC's specs" /></Hyperlink><LineBreak /><Run Text="Rename your PC, Join domain" FontSize="14"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink TextDecorations=""><TextBlock Text="Change Computer name (Classic)"  Name="textCplComputername"  MouseLeftButtonDown="textCplComputername_Click"/></Hyperlink>
