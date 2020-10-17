@@ -15,7 +15,7 @@ namespace Control.Pages
         {
             InitializeComponent();
 
-            labelWelcomeUsername.Content = Environment.UserName;
+            labelWelcomeUsername.Content = Environment.UserName.ToUpper();
         }
 
         public string PageTitle => "Welcome";
@@ -39,6 +39,11 @@ namespace Control.Pages
         private void textStorageSense_Click(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("/Pages/System/StorageSense.xaml", UriKind.Relative));
+        }
+
+        private void textSystemInfo_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("/Pages/System/SystemInfo.xaml", UriKind.Relative));
         }
     }
 }

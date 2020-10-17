@@ -33,5 +33,10 @@ namespace Control.Pages
         {
             this.NavigationService.Navigate(new Uri("/Pages/System/StorageSense.xaml", UriKind.Relative));
         }
+
+        private void textSystemInfo_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("/Pages/System/SystemInfo.xaml", UriKind.Relative));
+        }
     }
 }

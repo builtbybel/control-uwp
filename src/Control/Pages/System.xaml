@@ -9,12 +9,16 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="System">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="245"/>
+        </Grid.ColumnDefinitions>
         <!-- URI-->
         <TextBlock TextAlignment="Left" Margin="10,10,10,5" FontSize="15" TextWrapping="WrapWithOverflow">
            <Run Text="Display, sound, notifications, power" FontSize="18"/>
             <LineBreak />
             <LineBreak />
-         <Hyperlink NavigateUri="ms-settings:about" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My PC's specs" /></Hyperlink><LineBreak /><Run Text="Rename your PC, Join domain" FontSize="14"/>
+         <Hyperlink TextDecorations=""><TextBlock Text="Show System info" Name="textSystemInfo" MouseLeftButtonDown="textSystemInfo_Click"/></Hyperlink><LineBreak/><Run Text="Shows Windows and Device specifications" FontSize="14"/>
             <LineBreak />
             <LineBreak />
          <Hyperlink TextDecorations=""><TextBlock Text="Change Computer name (Classic)"  Name="textCplComputername"  MouseLeftButtonDown="textCplComputername_Click"/></Hyperlink>
@@ -65,7 +69,7 @@
           <Hyperlink NavigateUri="ms-settings:storagepolicies" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Storage Sense (Configure)" /></Hyperlink>
             <LineBreak />
            <LineBreak />
-            <Hyperlink TextDecorations=""><TextBlock Text="Storage Sense" Name="textStorageSense" MouseLeftButtonDown="textStorageSense_Click"/></Hyperlink> 
+            <Hyperlink TextDecorations=""><TextBlock Text="Storage Sense" Name="textStorageSense" MouseLeftButtonDown="textStorageSense_Click"/></Hyperlink><LineBreak /><Run Text="Removes temporary files and more when you're low on disk space" FontSize="14"/>
             <LineBreak />
            <LineBreak />
           <Hyperlink NavigateUri="ms-settings:tabletmode" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Tablet" /></Hyperlink>

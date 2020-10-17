@@ -1,0 +1,34 @@
+﻿<Page x:Class="Control.Pages.SystemInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      xmlns:local="clr-namespace:Control.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SystemInfo">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="228" />
+        </Grid.ColumnDefinitions>
+        <TextBlock TextAlignment="Left" Margin="10,0,43,398" TextWrapping="WrapWithOverflow" MinWidth="400">
+           <Run Text="Basic information about your Windows and Device specifications." FontSize="18" />
+        </TextBlock>
+        
+        <!-- System info -->
+        <TextBlock x:Name="textSystemInfo" Margin="10,57,10,10" FontFamily="Consolas" TextWrapping="WrapWithOverflow"/>
+
+        <!-- Quick links -->
+        <TextBlock TextAlignment="Left" Grid.Column="1" Margin="10,41,10,345" TextWrapping="WrapWithOverflow" FontSize="15">
+           <Bold><Run Text="Quick links" /></Bold>
+            <LineBreak />
+            <LineBreak />
+        <Hyperlink NavigateUri="ms-settings:about" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My PC's specs" /></Hyperlink><LineBreak /><Run Text="Rename your PC, Join domain" FontSize="14"/>
+             <LineBreak />
+            <LineBreak />
+        <Hyperlink TextDecorations=""><TextBlock Text="Export System information" Name="textExport" MouseLeftButtonDown="textExport_Click" TextWrapping="WrapWithOverflow" /></Hyperlink>
+        </TextBlock>
+    </Grid>
+</Page>

@@ -19,7 +19,7 @@
          <Hyperlink NavigateUri="ms-settings:yourinfo" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="My Account" /></Hyperlink>
             <LineBreak />
             <LineBreak />
-          <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Updates" /></Hyperlink>
+          <Hyperlink NavigateUri="ms-settings:windowsupdate-action" TextDecorations="" RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Windows Update" /></Hyperlink>
             <LineBreak />
             <LineBreak />
           <Hyperlink NavigateUri="windowsdefender:" TextDecorations=""  RequestNavigate="Hyperlink_RequestNavigate"><Run Text="Security Center" /></Hyperlink>
@@ -37,6 +37,9 @@
             <LineBreak />
             <LineBreak />
          <Hyperlink TextDecorations=""><TextBlock Text="Storage Sense" Name="textStorageSense" MouseLeftButtonDown="textStorageSense_Click" TextWrapping="WrapWithOverflow"/></Hyperlink> 
+            <LineBreak />
+            <LineBreak />
+         <Hyperlink TextDecorations=""><TextBlock Text="System Info" Name="textSystemInfo" MouseLeftButtonDown="textSystemInfo_Click" TextWrapping="WrapWithOverflow"/></Hyperlink> 
             <LineBreak />
             <LineBreak />
         </TextBlock>

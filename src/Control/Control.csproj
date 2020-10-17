@@ -8,8 +8,8 @@
     <Company>Builtbybel</Company>
     <Authors>Builtbybel</Authors>
     <Product>ControlUWP</Product>
-    <AssemblyVersion>0.21.20.0</AssemblyVersion>
-    <FileVersion>0.21.20.0</FileVersion>
+    <AssemblyVersion>0.22.0.0</AssemblyVersion>
+    <FileVersion>0.22.20.0</FileVersion>
     <AssemblyName>control.launcher</AssemblyName>
     <ApplicationIcon>AppIcon.ico</ApplicationIcon>
     <Copyright>(C) Builtbybel 2020</Copyright>

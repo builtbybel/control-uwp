@@ -20,11 +20,6 @@ namespace Control.Pages
 
         public string PageTitle => "Storage Sense";
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("/Pages/System.xaml", UriKind.Relative));
-        }
-
         private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri) { UseShellExecute = true });
