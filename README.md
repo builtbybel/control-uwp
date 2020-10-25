@@ -52,7 +52,7 @@ http://www.builtbybel.com/blog/12-company-announcements/40-relaunch-of-windows-1
 - (Latest release) [Download](https://github.com/builtbybel/control-uwp/releases)
 
 #### ControlUWP is fully portable but requires [.NET Core Runtime 3.1](https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-desktop-3.1.4-windows-x64-installer) 
-Currently it is not shipped by default on Windows 10 and I dont want to publish ControlUWP as self-contained (produces an application that includes the .NET Core runtime and libraries, and all its dependencies), as this increases the size drastically. 
+Currently it is not shipped by default on Windows 10 (and it will never be according to Microsofts .NET Team) and I dont want to publish ControlUWP as self-contained (produces an application that includes the .NET Core runtime and libraries, and all its dependencies), as this increases the size drastically. 
 
 ## Contribute
 
